@@ -32,6 +32,9 @@ import java.net.URL;
 
 public class MainActivity extends AppCompatActivity {
 
+    final static String GITHUB_BASE_URL =
+            "https://api.github.com/repos/jakehoare/leetcode/contents";
+
     private EditText mSearchBoxEditText;
 
     private TextView mUrlDisplayTextView;
@@ -56,13 +59,14 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * This method retrieves the search text from the EditText, constructs the
-     * URL (using {@link NetworkUtils}) for the github repository you'd like to find, displays
+     * URL (using {@link NetworkUtils}) for the github repository contents, displays
      * that URL in a TextView, and finally fires off an AsyncTask to perform the GET request using
      * our {@link GithubQueryTask}
      */
     private void makeGithubSearchQuery() {
-        String githubQuery = mSearchBoxEditText.getText().toString();
-        URL githubSearchUrl = NetworkUtils.buildUrl(githubQuery);
+        String githubQuery = mSearchBoxEditText.getText().toString();   // TODO currently ignored
+        // TODO https://stackoverflow.com/questions/13196234/simple-parse-json-from-url-on-android-and-display-in-listview
+        URL githubSearchUrl = NetworkUtils.buildUrl(GITHUB_BASE_URL);
         mUrlDisplayTextView.setText(githubSearchUrl.toString());
         new GithubQueryTask().execute(githubSearchUrl);
     }

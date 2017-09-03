@@ -14,7 +14,10 @@
   limitations under the License.
 -->
 <resources>
-    <string name="app_name">Github Query</string>
+    <string name="app_name">Leetcode Python</string>
     <string name="search">Search</string>
     <string name="error_message">Failed to get results, please try again.</string>
+    <string name="search_query_placeholder">Enter a query, then click Search</string>
+    <string name="search_results_placeholder">Click search and your URL will show up here!</string>
+    <string name="make_a_search">Make a search!</string>
 </resources>

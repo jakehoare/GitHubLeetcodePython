@@ -29,29 +29,14 @@ import java.util.Scanner;
  */
 public class NetworkUtils {
 
-    final static String GITHUB_BASE_URL =
-            "https://api.github.com/search/repositories";
-
-    final static String PARAM_QUERY = "q";
-
-    /*
-     * The sort field. One of stars, forks, or updated.
-     * Default: results are sorted by best match if no field is specified.
-     */
-    final static String PARAM_SORT = "sort";
-    final static String sortBy = "stars";
-
     /**
-     * Builds the URL used to query GitHub.
+     * Builds a URL used to retrieve data from GitHub.
      *
-     * @param githubSearchQuery The keyword that will be queried for.
-     * @return The URL to use to query the GitHub.
+     * @param URLString The URL as a string.
+     * @return The GitHub URL.
      */
-    public static URL buildUrl(String githubSearchQuery) {
-        Uri builtUri = Uri.parse(GITHUB_BASE_URL).buildUpon()
-                .appendQueryParameter(PARAM_QUERY, githubSearchQuery)
-                .appendQueryParameter(PARAM_SORT, sortBy)
-                .build();
+    public static URL buildUrl(String URLString) {
+        Uri builtUri = Uri.parse(URLString).buildUpon().build();
 
         URL url = null;
         try {
