@@ -30,10 +30,10 @@ import java.util.Scanner;
 public class NetworkUtils {
 
     /**
-     * Builds a URL used to retrieve data from GitHub.
+     * Converts a String to a URL.
      *
      * @param URLString The URL as a string.
-     * @return The GitHub URL.
+     * @return The URL.
      */
     public static URL buildUrl(String URLString) {
         Uri builtUri = Uri.parse(URLString).buildUpon().build();
