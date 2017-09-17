@@ -15,6 +15,7 @@
  */
 package com.example.android.datafrominternet;
 
+import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -22,6 +23,8 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListAdapter;
 import android.widget.ListView;
@@ -41,15 +44,13 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
     final static String GITHUB_BASE_URL =
             "https://api.github.com/repos/jakehoare/leetcode/contents";
 
     private String TAG = MainActivity.class.getSimpleName();
     private EditText mSearchBoxEditText;
-    private TextView mErrorMessageDisplay;
-    private ProgressBar mLoadingIndicator;
     private ListView mProblemListView;
     ArrayList<HashMap<String, String>> problemList;
 
@@ -60,71 +61,34 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         mSearchBoxEditText = (EditText) findViewById(R.id.et_search_box);
-        mErrorMessageDisplay = (TextView) findViewById(R.id.tv_error_message_display);
-        mLoadingIndicator = (ProgressBar) findViewById(R.id.pb_loading_indicator);
         mProblemListView = (ListView) findViewById(R.id.lv_problem_list);
 
         problemList = new ArrayList<>();
         new GetProblems().execute();
+
+        mProblemListView.setOnItemClickListener(this);
     }
 
-    /**
-     * This method retrieves the search text from the EditText, constructs the
-     * URL (using {@link NetworkUtils}) for the github repository contents, displays
-     * that URL in a TextView, and finally fires off an AsyncTask to perform the GET request using
-     * our {@link GithubQueryTask}
-     */
-    private void makeGithubSearchQuery() {
-        String githubQuery = mSearchBoxEditText.getText().toString();   // TODO currently ignored
-        // TODO https://stackoverflow.com/questions/13196234/simple-parse-json-from-url-on-android-and-display-in-listview
-        URL githubSearchUrl = NetworkUtils.buildUrl(GITHUB_BASE_URL);
-        //mUrlDisplayTextView.setText(githubSearchUrl.toString());
-        new GithubQueryTask().execute(githubSearchUrl);
+    @Override
+    public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+        Toast.makeText(MainActivity.this,
+                Integer.toString(position),
+                Toast.LENGTH_LONG).show();
     }
 
     private void filterProblemList() {
-        String githubQuery = mSearchBoxEditText.getText().toString();
-        // TODO add code here that updates mProblemListView to only show problems containing githubQuery
-    }
+        String filterText = mSearchBoxEditText.getText().toString().toLowerCase();
+        ArrayList<HashMap<String, String>> filteredProblemList = new ArrayList<>();
 
-    private void showJsonDataView() {
-        mErrorMessageDisplay.setVisibility(View.INVISIBLE);
-    }
+        for (HashMap<String, String> problem : problemList)
+            if (problem.get("name").toLowerCase().contains(filterText))
+                filteredProblemList.add(problem);
 
-    private void showErrorMessage() {
-        mErrorMessageDisplay.setVisibility(View.VISIBLE);
-    }
-
-    private class GithubQueryTask extends AsyncTask<URL, Void, String> {
-
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-            mLoadingIndicator.setVisibility(View.VISIBLE);
-        }
-
-        @Override
-        protected String doInBackground(URL... params) {
-            URL searchUrl = params[0];
-            String githubSearchResults = null;
-            try {
-                githubSearchResults = NetworkUtils.getResponseFromHttpUrl(searchUrl);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            return githubSearchResults;
-        }
-
-        @Override
-        protected void onPostExecute(String githubSearchResults) {
-            mLoadingIndicator.setVisibility(View.INVISIBLE);
-            if (githubSearchResults != null && !githubSearchResults.equals("")) {
-                showJsonDataView();
-                //mSearchResultsTextView.setText(githubSearchResults);
-            } else {
-                showErrorMessage();
-            }
-        }
+        // TODO create functiom for code below and onpostexecute
+        ListAdapter adapter = new SimpleAdapter(MainActivity.this, filteredProblemList,
+                R.layout.list_item, new String[]{ "name","type"},
+                new int[]{R.id.tv_name, R.id.tv_type});
+        mProblemListView.setAdapter(adapter);
     }
 
 
@@ -133,9 +97,8 @@ public class MainActivity extends AppCompatActivity {
         protected void onPreExecute() {
             super.onPreExecute();
             Toast.makeText(MainActivity.this,
-                    "Json Data is downloading",
+                    "Problem list is downloading",
                     Toast.LENGTH_LONG).show();
-            // TODO amend to mLoadingIndicator.setVisibility(View.VISIBLE); ???
         }
 
         @Override
@@ -212,7 +175,6 @@ public class MainActivity extends AppCompatActivity {
                     R.layout.list_item, new String[]{ "name","type"},
                     new int[]{R.id.tv_name, R.id.tv_type});
             mProblemListView.setAdapter(adapter);
-            // TODO amend to mLoadingIndicator.setVisibility to invisible ???
 
         }
     }
@@ -227,9 +189,21 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int itemThatWasClickedId = item.getItemId();
         if (itemThatWasClickedId == R.id.action_search) {
-            makeGithubSearchQuery();
+
+            // hide the keyboard
+            InputMethodManager inputManager = (InputMethodManager)
+                    getSystemService(Context.INPUT_METHOD_SERVICE);
+            inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
+                    InputMethodManager.HIDE_NOT_ALWAYS);
+
+            filterProblemList();
             return true;
         }
+
+        //Toast.makeText(MainActivity.this,
+        //        itemThatWasClickedId,
+        //        Toast.LENGTH_LONG).show();
+
         return super.onOptionsItemSelected(item);
     }
 }
