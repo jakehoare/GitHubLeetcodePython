@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     private EditText mSearchBoxEditText;
     private ListView mProblemListView;
     ArrayList<HashMap<String, String>> allProblemsList;
-
+    ArrayList<HashMap<String, String>> filteredProblemList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,15 +73,18 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
         //Toast.makeText(MainActivity.this, Integer.toString(position), Toast.LENGTH_LONG).show();
+        String testItem = filteredProblemList.get(position).get("html");
+
         Context context = MainActivity.this;
         Class destinationActivity = ChildActivity.class;
-        Intent intent = new Intent(context, destinationActivity);
-        startActivity(intent);
+        Intent startChildActivityIntent = new Intent(context, destinationActivity);
+        startChildActivityIntent.putExtra(Intent.EXTRA_TEXT, testItem);
+        startActivity(startChildActivityIntent);
     }
 
     private void filterProblemList() {
         String filterText = mSearchBoxEditText.getText().toString().toLowerCase();
-        ArrayList<HashMap<String, String>> filteredProblemList = new ArrayList<>();
+        filteredProblemList = new ArrayList<>();
 
         for (HashMap<String, String> problem : allProblemsList)
             if (problem.get("name").toLowerCase().contains(filterText))
@@ -177,7 +180,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         @Override
         protected void onPostExecute(Void result) {
             super.onPostExecute(result);
-            displayProblemList(allProblemsList);
+            // Initialise filtered list with all problems
+            filteredProblemList = new ArrayList<>(allProblemsList);
+            displayProblemList(filteredProblemList);
         }
     }
 
