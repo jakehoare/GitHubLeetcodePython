@@ -16,6 +16,7 @@
 package com.example.android.datafrominternet;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -52,7 +53,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     private String TAG = MainActivity.class.getSimpleName();
     private EditText mSearchBoxEditText;
     private ListView mProblemListView;
-    ArrayList<HashMap<String, String>> problemList;
+    ArrayList<HashMap<String, String>> allProblemsList;
 
 
     @Override
@@ -63,7 +64,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         mSearchBoxEditText = (EditText) findViewById(R.id.et_search_box);
         mProblemListView = (ListView) findViewById(R.id.lv_problem_list);
 
-        problemList = new ArrayList<>();
+        allProblemsList = new ArrayList<>();
         new GetProblems().execute();
 
         mProblemListView.setOnItemClickListener(this);
@@ -71,21 +72,26 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-        Toast.makeText(MainActivity.this,
-                Integer.toString(position),
-                Toast.LENGTH_LONG).show();
+        //Toast.makeText(MainActivity.this, Integer.toString(position), Toast.LENGTH_LONG).show();
+        Context context = MainActivity.this;
+        Class destinationActivity = ChildActivity.class;
+        Intent intent = new Intent(context, destinationActivity);
+        startActivity(intent);
     }
 
     private void filterProblemList() {
         String filterText = mSearchBoxEditText.getText().toString().toLowerCase();
         ArrayList<HashMap<String, String>> filteredProblemList = new ArrayList<>();
 
-        for (HashMap<String, String> problem : problemList)
+        for (HashMap<String, String> problem : allProblemsList)
             if (problem.get("name").toLowerCase().contains(filterText))
                 filteredProblemList.add(problem);
 
-        // TODO create functiom for code below and onpostexecute
-        ListAdapter adapter = new SimpleAdapter(MainActivity.this, filteredProblemList,
+        displayProblemList(filteredProblemList);
+    }
+
+    private void displayProblemList(ArrayList<HashMap<String, String>> problemList) {
+        ListAdapter adapter = new SimpleAdapter(MainActivity.this, problemList,
                 R.layout.list_item, new String[]{ "name","type"},
                 new int[]{R.id.tv_name, R.id.tv_type});
         mProblemListView.setAdapter(adapter);
@@ -138,7 +144,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                         problem.put("html", html);
 
                         // adding problem to problem list
-                        problemList.add(problem);
+                        allProblemsList.add(problem);
                     }
                 } catch (final JSONException e) {
                     Log.e(TAG, "Json parsing error: " + e.getMessage());
@@ -171,11 +177,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         @Override
         protected void onPostExecute(Void result) {
             super.onPostExecute(result);
-            ListAdapter adapter = new SimpleAdapter(MainActivity.this, problemList,
-                    R.layout.list_item, new String[]{ "name","type"},
-                    new int[]{R.id.tv_name, R.id.tv_type});
-            mProblemListView.setAdapter(adapter);
-
+            displayProblemList(allProblemsList);
         }
     }
 
@@ -199,10 +201,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             filterProblemList();
             return true;
         }
-
-        //Toast.makeText(MainActivity.this,
-        //        itemThatWasClickedId,
-        //        Toast.LENGTH_LONG).show();
 
         return super.onOptionsItemSelected(item);
     }
