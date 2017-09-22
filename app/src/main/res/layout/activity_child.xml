@@ -9,12 +9,18 @@
     android:paddingRight="16dp"
     android:paddingTop="16dp"
     tools:context="com.example.android.datafrominternet.ChildActivity">
-    
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/tv_display"
-        android:textSize="30sp"
-        android:text="This is default text for the child activity."/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_display"
+            android:textSize="16sp"
+            android:text="This is default text for the child activity."/>
+
+    </ScrollView>
 
 </RelativeLayout>

@@ -72,13 +72,11 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-        //Toast.makeText(MainActivity.this, Integer.toString(position), Toast.LENGTH_LONG).show();
-        String testItem = filteredProblemList.get(position).get("html");
-
+        String downloadUrl = filteredProblemList.get(position).get("download_url");
         Context context = MainActivity.this;
         Class destinationActivity = ChildActivity.class;
         Intent startChildActivityIntent = new Intent(context, destinationActivity);
-        startChildActivityIntent.putExtra(Intent.EXTRA_TEXT, testItem);
+        startChildActivityIntent.putExtra(Intent.EXTRA_TEXT, downloadUrl);
         startActivity(startChildActivityIntent);
     }
 
@@ -133,10 +131,14 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                         JSONObject p = problems.getJSONObject(i);
                         String name = p.getString("name");
                         String type = p.getString("type");
+                        String download_url = p.getString("download_url");
+
+                        if (!type.equals("file") || !name.endsWith(".py"))
+                            continue;
 
                         // _links node is JSON Object
-                        JSONObject links = p.getJSONObject("_links");
-                        String html = links.getString("html");
+                        //JSONObject links = p.getJSONObject("_links");
+                        //String html = links.getString("html");
 
                         // tmp hash map for single problem
                         HashMap<String, String> problem = new HashMap<>();
@@ -144,7 +146,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                         // adding each child node to HashMap key => value
                         problem.put("name", name);
                         problem.put("type", type);
-                        problem.put("html", html);
+                        problem.put("download_url", download_url);
 
                         // adding problem to problem list
                         allProblemsList.add(problem);
