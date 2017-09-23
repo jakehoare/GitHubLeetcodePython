@@ -1,24 +1,17 @@
-package com.example.android.datafrominternet;
+package com.machinelearningforsmallbusiness.leetcodepython;
 
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.Html;
 import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.android.datafrominternet.utilities.NetworkUtils;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.machinelearningforsmallbusiness.leetcodepython.utilities.NetworkUtils;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.HashMap;
 
 public class ChildActivity extends AppCompatActivity {
 
@@ -45,9 +38,7 @@ public class ChildActivity extends AppCompatActivity {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            Toast.makeText(ChildActivity.this,
-                    "Solution is downloading",
-                    Toast.LENGTH_LONG).show();
+            // no Toast because shown when orientation changes
         }
 
         @Override
@@ -79,7 +70,11 @@ public class ChildActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String solution) {
-            //super.onPostExecute(result); TODO check if null as per E0206
+            // TODO syntax highlighting
+            // http://hilite.me/
+            // string out from github html
+            // https://github.com/kbiakov/CodeView-android
+            // WebView
             mDisplayText.setText(solution);
         }
     }

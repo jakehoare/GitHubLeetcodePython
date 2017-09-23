@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.example.android.datafrominternet;
+package com.machinelearningforsmallbusiness.leetcodepython;
 
 import android.content.Context;
 import android.content.Intent;
@@ -29,12 +29,10 @@ import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.ProgressBar;
 import android.widget.SimpleAdapter;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.android.datafrominternet.utilities.NetworkUtils;
+import com.machinelearningforsmallbusiness.leetcodepython.utilities.NetworkUtils;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -44,6 +42,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
@@ -55,6 +54,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     private ListView mProblemListView;
     ArrayList<HashMap<String, String>> allProblemsList;
     ArrayList<HashMap<String, String>> filteredProblemList;
+    final Random rand = new Random();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,14 +70,18 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         mProblemListView.setOnItemClickListener(this);
     }
 
-    @Override
-    public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-        String downloadUrl = filteredProblemList.get(position).get("download_url");
+    private void showSolution(int filteredIndex) {
+        String downloadUrl = filteredProblemList.get(filteredIndex).get("download_url");
         Context context = MainActivity.this;
         Class destinationActivity = ChildActivity.class;
         Intent startChildActivityIntent = new Intent(context, destinationActivity);
         startChildActivityIntent.putExtra(Intent.EXTRA_TEXT, downloadUrl);
         startActivity(startChildActivityIntent);
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+        showSolution(position);
     }
 
     private void filterProblemList() {
@@ -93,8 +97,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     private void displayProblemList(ArrayList<HashMap<String, String>> problemList) {
         ListAdapter adapter = new SimpleAdapter(MainActivity.this, problemList,
-                R.layout.list_item, new String[]{ "name","type"},
-                new int[]{R.id.tv_name, R.id.tv_type});
+                R.layout.list_item, new String[]{"name"},
+                new int[]{R.id.tv_name});
         mProblemListView.setAdapter(adapter);
     }
 
@@ -136,11 +140,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                         if (!type.equals("file") || !name.endsWith(".py"))
                             continue;
 
-                        // _links node is JSON Object
-                        //JSONObject links = p.getJSONObject("_links");
-                        //String html = links.getString("html");
-
-                        // tmp hash map for single problem
+                        // temp hash map for single problem
                         HashMap<String, String> problem = new HashMap<>();
 
                         // adding each child node to HashMap key => value
@@ -181,7 +181,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
         @Override
         protected void onPostExecute(Void result) {
-            super.onPostExecute(result);
             // Initialise filtered list with all problems
             filteredProblemList = new ArrayList<>(allProblemsList);
             displayProblemList(filteredProblemList);
@@ -194,19 +193,27 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         return true;
     }
 
+    private void hideKeyboard() {
+        InputMethodManager inputManager = (InputMethodManager)
+                getSystemService(Context.INPUT_METHOD_SERVICE);
+        View focusedView = getCurrentFocus();
+        if (focusedView != null)
+            inputManager.hideSoftInputFromWindow(focusedView.getWindowToken(),
+                    InputMethodManager.HIDE_NOT_ALWAYS);
+    }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int itemThatWasClickedId = item.getItemId();
+
         if (itemThatWasClickedId == R.id.action_search) {
-
-            // hide the keyboard
-            InputMethodManager inputManager = (InputMethodManager)
-                    getSystemService(Context.INPUT_METHOD_SERVICE);
-            inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
-                    InputMethodManager.HIDE_NOT_ALWAYS);
-
+            hideKeyboard();
             filterProblemList();
             return true;
+
+        } else if (itemThatWasClickedId == R.id.action_random) {
+            int randomIndex = rand.nextInt(filteredProblemList.size());
+            showSolution(randomIndex);
         }
 
         return super.onOptionsItemSelected(item);
