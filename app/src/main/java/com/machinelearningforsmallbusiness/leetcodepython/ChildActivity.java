@@ -5,10 +5,11 @@ import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.machinelearningforsmallbusiness.leetcodepython.utilities.NetworkUtils;
+import com.pddstudio.highlightjs.HighlightJsView;
+import com.pddstudio.highlightjs.models.Language;
 
 import java.io.IOException;
 import java.net.URL;
@@ -16,14 +17,14 @@ import java.net.URL;
 public class ChildActivity extends AppCompatActivity {
 
     private String TAG = ChildActivity.class.getSimpleName();
-    private TextView mDisplayText;
+    private HighlightJsView mDisplayText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_child);
 
-        mDisplayText = (TextView) findViewById(R.id.tv_display);
+        mDisplayText = (HighlightJsView) findViewById(R.id.tv_display);
 
         Intent intentThatStartedThisActivity = getIntent();
 
@@ -52,8 +53,7 @@ public class ChildActivity extends AppCompatActivity {
 
             Log.e(TAG, "Response from url: " + solution);
 
-            if (solution != null) {
-            } else {
+            if (solution == null) {
                 Log.e(TAG, "Couldn't get solution from server.");
                 runOnUiThread(new Runnable() {
                     @Override
@@ -75,7 +75,11 @@ public class ChildActivity extends AppCompatActivity {
             // string out from github html
             // https://github.com/kbiakov/CodeView-android
             // WebView
-            mDisplayText.setText(solution);
+            // https://stackoverflow.com/questions/11987660/android-syntax-highlighting
+
+            // https://github.com/PDDStudio/highlightjs-android
+            mDisplayText.setHighlightLanguage(Language.AUTO_DETECT);
+            mDisplayText.setSource(solution);
         }
     }
 

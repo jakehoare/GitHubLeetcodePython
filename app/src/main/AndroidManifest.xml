@@ -14,16 +14,14 @@
         <activity android:name=".MainActivity"
             android:windowSoftInputMode="stateHidden">
             <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
+                <!--action android:name="android.intent.action.VIEW" /-->
                 <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
+                <!--category android:name="android.intent.category.DEFAULT" /-->
+                <!--category android:name="android.intent.category.BROWSABLE" /-->
                 <category android:name="android.intent.category.LAUNCHER" />
-                <!-- Accepts URIs that begin with "http://www.machinelearningforsmallbusiness.com/leetcodepython” -->
-                <data android:scheme="http"
-                    android:host="www.machinelearningforsmallbusiness.com"
-                    android:pathPrefix="/leetcodepython" />
+                <!--data android:scheme="machinelearningforsmallbusiness"
+                    android:host="leetcodepython" /-->
             </intent-filter>
         </activity>
 

@@ -10,12 +10,11 @@
     android:paddingTop="16dp"
     tools:context=".ChildActivity">
 
-    <TextView
+    <com.pddstudio.highlightjs.HighlightJsView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/tv_display"
         android:textSize="16sp"
-        android:textColor="@color/colorPrimary"
         android:text=""/>
 
 </ScrollView>
