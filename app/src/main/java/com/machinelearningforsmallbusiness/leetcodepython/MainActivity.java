@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     private void showSolution(int filteredIndex) {
         String downloadUrl = filteredProblemList.get(filteredIndex).get("download_url");
         Context context = MainActivity.this;
-        Class destinationActivity = ChildActivity.class;
+        Class destinationActivity = DisplayCodeActivity.class;
         Intent startChildActivityIntent = new Intent(context, destinationActivity);
         startChildActivityIntent.putExtra(Intent.EXTRA_TEXT, downloadUrl);
         startActivity(startChildActivityIntent);

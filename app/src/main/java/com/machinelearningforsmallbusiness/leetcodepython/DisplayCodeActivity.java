@@ -10,19 +10,20 @@ import android.widget.Toast;
 import com.machinelearningforsmallbusiness.leetcodepython.utilities.NetworkUtils;
 import com.pddstudio.highlightjs.HighlightJsView;
 import com.pddstudio.highlightjs.models.Language;
+import com.pddstudio.highlightjs.models.Theme;
 
 import java.io.IOException;
 import java.net.URL;
 
-public class ChildActivity extends AppCompatActivity {
+public class DisplayCodeActivity extends AppCompatActivity {
 
-    private String TAG = ChildActivity.class.getSimpleName();
+    private String TAG = DisplayCodeActivity.class.getSimpleName();
     private HighlightJsView mDisplayText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_child);
+        setContentView(R.layout.activity_displaycode);
 
         mDisplayText = (HighlightJsView) findViewById(R.id.tv_display);
 
@@ -31,6 +32,9 @@ public class ChildActivity extends AppCompatActivity {
         if (intentThatStartedThisActivity.hasExtra(Intent.EXTRA_TEXT)) {
             String downloadUrl = intentThatStartedThisActivity.getStringExtra(Intent.EXTRA_TEXT);
             URL solutionURL = NetworkUtils.buildUrl(downloadUrl);
+            // to do update header
+            downloadUrl = downloadUrl.replaceAll("_", " ");
+
             new GetSolution().execute(solutionURL);
         }
     }
@@ -65,20 +69,19 @@ public class ChildActivity extends AppCompatActivity {
                 });
             }
 
-            return solution;
+            int linesToRemove = 3;
+            int pos = solution.indexOf("\n");
+            while (--linesToRemove > 0)
+                pos = solution.indexOf("\n", pos + 1);
+            return solution.substring(pos);
         }
 
         @Override
         protected void onPostExecute(String solution) {
-            // TODO syntax highlighting
-            // http://hilite.me/
-            // string out from github html
-            // https://github.com/kbiakov/CodeView-android
-            // WebView
-            // https://stackoverflow.com/questions/11987660/android-syntax-highlighting
-
             // https://github.com/PDDStudio/highlightjs-android
-            mDisplayText.setHighlightLanguage(Language.AUTO_DETECT);
+            // TODO change style
+            mDisplayText.setTheme(Theme.DEFAULT);
+            mDisplayText.setHighlightLanguage(Language.PYTHON);
             mDisplayText.setSource(solution);
         }
     }
