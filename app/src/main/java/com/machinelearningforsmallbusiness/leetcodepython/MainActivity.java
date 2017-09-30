@@ -72,10 +72,12 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     private void showSolution(int filteredIndex) {
         String downloadUrl = filteredProblemList.get(filteredIndex).get("download_url");
+        String problemName = filteredProblemList.get(filteredIndex).get("name");
         Context context = MainActivity.this;
         Class destinationActivity = DisplayCodeActivity.class;
         Intent startChildActivityIntent = new Intent(context, destinationActivity);
         startChildActivityIntent.putExtra(Intent.EXTRA_TEXT, downloadUrl);
+        startChildActivityIntent.putExtra(Intent.EXTRA_TITLE, problemName);
         startActivity(startChildActivityIntent);
     }
 
@@ -107,8 +109,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            Toast.makeText(MainActivity.this,
-                    "Problem list is downloading",
+            Toast.makeText(MainActivity.this, "Problem list is downloading",
                     Toast.LENGTH_LONG).show();
         }
 
@@ -139,6 +140,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
                         if (!type.equals("file") || !name.endsWith(".py"))
                             continue;
+                        name = name.substring(0, name.length() - 3);
+                        name = name.replaceFirst("_", ": ").replaceAll("_", " ");
 
                         // temp hash map for single problem
                         HashMap<String, String> problem = new HashMap<>();
@@ -212,8 +215,13 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             return true;
 
         } else if (itemThatWasClickedId == R.id.action_random) {
-            int randomIndex = rand.nextInt(filteredProblemList.size());
-            showSolution(randomIndex);
+            if (filteredProblemList.size() == 0) {
+                Toast.makeText(MainActivity.this, "Problem list is empty",
+                        Toast.LENGTH_LONG).show();
+            } else {
+                int randomIndex = rand.nextInt(filteredProblemList.size());
+                showSolution(randomIndex);
+            }
         }
 
         return super.onOptionsItemSelected(item);

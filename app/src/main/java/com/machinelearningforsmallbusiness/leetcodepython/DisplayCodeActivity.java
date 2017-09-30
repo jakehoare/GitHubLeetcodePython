@@ -5,6 +5,7 @@ import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.machinelearningforsmallbusiness.leetcodepython.utilities.NetworkUtils;
@@ -19,22 +20,23 @@ public class DisplayCodeActivity extends AppCompatActivity {
 
     private String TAG = DisplayCodeActivity.class.getSimpleName();
     private HighlightJsView mDisplayText;
+    private TextView mDisplayTitle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_displaycode);
 
-        mDisplayText = (HighlightJsView) findViewById(R.id.tv_display);
+        mDisplayText = (HighlightJsView) findViewById(R.id.hjsv_code);
+        mDisplayTitle = (TextView) findViewById(R.id.tv_title);
 
         Intent intentThatStartedThisActivity = getIntent();
 
-        if (intentThatStartedThisActivity.hasExtra(Intent.EXTRA_TEXT)) {
+        if (intentThatStartedThisActivity.hasExtra(Intent.EXTRA_TITLE)) {
+            String problemName = intentThatStartedThisActivity.getStringExtra(Intent.EXTRA_TITLE);
+            mDisplayTitle.setText(problemName);
             String downloadUrl = intentThatStartedThisActivity.getStringExtra(Intent.EXTRA_TEXT);
             URL solutionURL = NetworkUtils.buildUrl(downloadUrl);
-            // to do update header
-            downloadUrl = downloadUrl.replaceAll("_", " ");
-
             new GetSolution().execute(solutionURL);
         }
     }
@@ -67,6 +69,7 @@ public class DisplayCodeActivity extends AppCompatActivity {
                                 Toast.LENGTH_LONG).show();
                     }
                 });
+                return null;
             }
 
             int linesToRemove = 3;
@@ -80,7 +83,7 @@ public class DisplayCodeActivity extends AppCompatActivity {
         protected void onPostExecute(String solution) {
             // https://github.com/PDDStudio/highlightjs-android
             // TODO change style
-            mDisplayText.setTheme(Theme.DEFAULT);
+            mDisplayText.setTheme(Theme.GITHUB);
             mDisplayText.setHighlightLanguage(Language.PYTHON);
             mDisplayText.setSource(solution);
         }
