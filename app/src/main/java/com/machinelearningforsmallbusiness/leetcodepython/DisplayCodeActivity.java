@@ -72,6 +72,7 @@ public class DisplayCodeActivity extends AppCompatActivity {
                 return null;
             }
 
+            // Remove first 3 lines of _author_, _project_ and blank
             int linesToRemove = 3;
             int pos = solution.indexOf("\n");
             while (--linesToRemove > 0)
@@ -82,7 +83,6 @@ public class DisplayCodeActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(String solution) {
             // https://github.com/PDDStudio/highlightjs-android
-            // TODO change style
             mDisplayText.setTheme(Theme.GITHUB);
             mDisplayText.setHighlightLanguage(Language.PYTHON);
             mDisplayText.setSource(solution);
