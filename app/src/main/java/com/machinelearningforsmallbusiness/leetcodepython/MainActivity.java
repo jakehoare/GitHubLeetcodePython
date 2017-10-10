@@ -114,18 +114,17 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     /**** FRAGMENT CALLBACKS *****/
     /*****************************/
     @Override
-    public void onPostExecute(ArrayList<HashMap<String, String>> problemsList) {
-        allProblemsList = problemsList;
-        filteredProblemList = problemsList;
-        displayProblemList(filteredProblemList);
-    }
-
-    @Override
     public void onPreExecute() {
         Toast.makeText(this, "Problem list is downloading",
                 Toast.LENGTH_LONG).show();
     }
 
+    @Override
+    public void onPostExecute(ArrayList<HashMap<String, String>> problemsList) {
+        allProblemsList = problemsList;
+        filteredProblemList = problemsList;
+        displayProblemList(filteredProblemList);
+    }
 
     /*****************************/
     /********* UTILITIES *********/

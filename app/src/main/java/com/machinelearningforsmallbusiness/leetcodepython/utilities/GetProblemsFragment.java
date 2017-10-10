@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -18,11 +19,12 @@ import java.util.HashMap;
 
 public class GetProblemsFragment extends Fragment {
 
-    final static String GITHUB_BASE_URL =
-            "https://api.github.com/repos/jakehoare/leetcode/contents";
+    final static String GITHUB_BASE_URL = "https://api.github.com/repos/jakehoare/leetcode/contents";
+    final static String LEETCODE_API_URL = "https://leetcode.com/api/problems/algorithms/";
     private String TAG = GetProblemsFragment.class.getSimpleName();
     private ArrayList<HashMap<String, String>> allProblemsList;
     private ArrayList<HashMap<String, String>> filteredProblemList;
+    private HashMap<String, String> difficultyMapping;
 
     /**
      * Callback interface through which the fragment will report the
@@ -98,54 +100,18 @@ public class GetProblemsFragment extends Fragment {
         @Override
         protected ArrayList<HashMap<String, String>> doInBackground(Void... params) {
 
+            // Get mapping from problem to difficulty from leetcode API
+            URL leetcodeAPIURL = NetworkUtils.buildUrl(LEETCODE_API_URL);
+            String jsonLeetocdeString = NetworkUtils.getJsonfromURL(leetcodeAPIURL);
+            Log.d(TAG, "Response from Leetcode url: " + jsonLeetocdeString);
+            parseLeetcodeJson(jsonLeetocdeString);
+
+            // Get solutions from GitHub
             allProblemsList = new ArrayList<>();
             URL allProblemsListURL = NetworkUtils.buildUrl(GITHUB_BASE_URL);
-            String jsonStr = null;
-
-            try {
-                jsonStr = NetworkUtils.getResponseFromHttpUrl(allProblemsListURL);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-            Log.e(TAG, "Response from url: " + jsonStr);
-
-            if (jsonStr != null) {
-                try {
-                    // Getting top-level JSON Array node
-                    // https://stackoverflow.com/questions/10164741/get-jsonarray-without-array-name
-                    JSONArray problems = new JSONArray(jsonStr);
-
-                    // Looping through all problems
-                    for (int i = 0; i < problems.length(); i++) {
-                        JSONObject p = problems.getJSONObject(i);
-                        String name = p.getString("name");
-                        String type = p.getString("type");
-                        String download_url = p.getString("download_url");
-
-                        if (!type.equals("file") || !name.endsWith(".py"))
-                            continue;
-                        name = name.substring(0, name.length() - 3);
-                        name = name.replaceFirst("_", ": ").replaceAll("_", " ");
-
-                        // Temp hash map for single problem
-                        HashMap<String, String> problem = new HashMap<>();
-
-                        // Adding each child node to HashMap key => value
-                        problem.put("name", name);
-                        problem.put("type", type);
-                        problem.put("download_url", download_url);
-
-                        // Adding problem to problem list
-                        allProblemsList.add(problem);
-                    }
-                } catch (final JSONException e) {
-                    Log.e(TAG, "Json parsing error: " + e.getMessage());
-                }
-
-            } else {
-                Log.e(TAG, "Couldn't get json from server.");
-            }
+            String jsonProblemsString = NetworkUtils.getJsonfromURL(allProblemsListURL);
+            Log.d(TAG, "Response from Github url: " + jsonProblemsString);
+            parseProblemsJson(jsonProblemsString);
 
             filteredProblemList = allProblemsList;
             return allProblemsList;
@@ -157,6 +123,80 @@ public class GetProblemsFragment extends Fragment {
                 mCallbacks.onPostExecute(problemsList);
             }
         }
+
+        private void parseProblemsJson(String jsonProblemsString) {
+            if (jsonProblemsString != null) {
+                try {
+                    // Getting top-level JSON Array node
+                    // https://stackoverflow.com/questions/10164741/get-jsonarray-without-array-name
+                    JSONArray problems = new JSONArray(jsonProblemsString);
+
+                    // Looping through all problems
+                    for (int i = 0; i < problems.length(); i++) {
+                        JSONObject p = problems.getJSONObject(i);
+                        String name = p.getString("name");
+                        String type = p.getString("type");
+                        String download_url = p.getString("download_url");
+
+                        // Remove non-Python
+                        if (!type.equals("file") || !name.endsWith(".py"))
+                            continue;
+
+                        // Remove suffix, replace underscores
+                        name = name.substring(0, name.length() - 3);
+                        name = name.replaceFirst("_", ": ").replaceAll("_", " ");
+                        // Get number without leading zeros
+                        String questionNb = name.substring(0, name.indexOf(' ') - 1);
+                        questionNb = Integer.toString(Integer.parseInt(questionNb));
+
+                        // Temp hash map for single problem
+                        HashMap<String, String> problem = new HashMap<>();
+
+                        // Adding data to HashMap key => value
+                        problem.put("name", name);
+                        problem.put("type", type);
+                        problem.put("download_url", download_url);
+                        problem.put("question_nb", questionNb);
+                        problem.put("difficulty", difficultyMapping.get(questionNb));
+
+                        // Adding problem to problem list
+                        allProblemsList.add(problem);
+                    }
+                } catch (final JSONException e) {
+                    Log.e(TAG, "Json parsing error: " + e.getMessage());
+                }
+
+            } else {
+                Log.e(TAG, "Couldn't get json from server.");
+            }
+        }
+
+        private void parseLeetcodeJson(String jsonLeetocdeString) {
+            if (jsonLeetocdeString != null) {
+                try {
+                    // Getting top-level JSON Object node
+                    JSONObject leetcode = new JSONObject(jsonLeetocdeString);
+                    JSONArray problems = leetcode.getJSONArray("stat_status_pairs");
+                    difficultyMapping = new HashMap<>();
+
+                    // Looping through all problems
+                    for (int i = 0; i < problems.length(); i++) {
+                        JSONObject problem = problems.getJSONObject(i);
+                        String questionID = problem.getJSONObject("stat").getString("question_id");
+                        String difficultyLevel = problem.getJSONObject("difficulty").getString("level");
+
+                        // Adding each problem HashMap question => difficulty
+                        difficultyMapping.put(questionID, difficultyLevel);
+                    }
+                } catch (final JSONException e) {
+                    Log.e(TAG, "Json parsing error: " + e.getMessage());
+                }
+
+            } else {
+                Log.e(TAG, "Couldn't get json from server.");
+            }
+        }
+
     }
 
 

@@ -20,7 +20,6 @@ public class DisplayCodeActivity extends AppCompatActivity {
 
     private String TAG = DisplayCodeActivity.class.getSimpleName();
     private HighlightJsView mDisplayText;
-    private TextView mDisplayTitle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +27,7 @@ public class DisplayCodeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_displaycode);
 
         mDisplayText = (HighlightJsView) findViewById(R.id.hjsv_code);
-        mDisplayTitle = (TextView) findViewById(R.id.tv_title);
+        TextView mDisplayTitle = (TextView) findViewById(R.id.tv_title);
 
         Intent intentThatStartedThisActivity = getIntent();
 

@@ -73,4 +73,15 @@ public class NetworkUtils {
             urlConnection.disconnect();
         }
     }
+
+    static String getJsonfromURL(URL url) {
+        String result = null;
+        try {
+            result = NetworkUtils.getResponseFromHttpUrl(url);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
 }
