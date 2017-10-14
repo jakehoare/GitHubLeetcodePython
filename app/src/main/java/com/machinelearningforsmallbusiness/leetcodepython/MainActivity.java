@@ -156,9 +156,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     private void displayProblemList(ArrayList<HashMap<String, String>> problemList) {
         if (problemList == null)
             return;
+
         ListAdapter adapter = new SimpleAdapter(MainActivity.this, problemList,
-                R.layout.list_item, new String[]{"name"},
-                new int[]{R.id.tv_name});
+                R.layout.list_item, new String[]{"name", "icon"},
+                new int[]{R.id.tv_name, R.id.iv_difficulty_icon});
         mProblemListView.setAdapter(adapter);
     }
 

@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.machinelearningforsmallbusiness.leetcodepython.R;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -131,6 +133,13 @@ public class GetProblemsFragment extends Fragment {
                     // https://stackoverflow.com/questions/10164741/get-jsonarray-without-array-name
                     JSONArray problems = new JSONArray(jsonProblemsString);
 
+                    // Array of integers points to images stored in /res/drawable-ldpi/
+                    int[] difficultyIcons = new int[]{
+                            R.mipmap.easy_icon,
+                            R.mipmap.medium_icon,
+                            R.mipmap.hard_icon
+                    };
+
                     // Looping through all problems
                     for (int i = 0; i < problems.length(); i++) {
                         JSONObject p = problems.getJSONObject(i);
@@ -146,8 +155,11 @@ public class GetProblemsFragment extends Fragment {
                         name = name.substring(0, name.length() - 3);
                         name = name.replaceFirst("_", ": ").replaceAll("_", " ");
                         // Get number without leading zeros
-                        String questionNb = name.substring(0, name.indexOf(' ') - 1);
-                        questionNb = Integer.toString(Integer.parseInt(questionNb));
+                        String questionString = name.substring(0, name.indexOf(' ') - 1);
+                        int questionInt = Integer.parseInt(questionString);
+                        questionString = Integer.toString(questionInt);
+                        String difficultyString = difficultyMapping.get(questionString);
+                        int difficultyInt;
 
                         // Temp hash map for single problem
                         HashMap<String, String> problem = new HashMap<>();
@@ -156,8 +168,15 @@ public class GetProblemsFragment extends Fragment {
                         problem.put("name", name);
                         problem.put("type", type);
                         problem.put("download_url", download_url);
-                        problem.put("question_nb", questionNb);
-                        problem.put("difficulty", difficultyMapping.get(questionNb));
+                        problem.put("question_nb", questionString);
+                        problem.put("difficulty", difficultyString);
+                        try{
+                            difficultyInt = Integer.parseInt(difficultyString);
+                        } catch (NumberFormatException e){
+                            difficultyInt = 2;
+                        }
+                        problem.put("icon",
+                                Integer.toString(difficultyIcons[difficultyInt - 1]));
 
                         // Adding problem to problem list
                         allProblemsList.add(problem);
