@@ -10,11 +10,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:contentDescription="@string/difficulty_icon"
-    />
+        android:layout_gravity="center_vertical"
+        android:paddingRight="16dp"
+        />
 
     <TextView
         android:id="@+id/tv_name"
-        android:layout_width="fill_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="16sp"
         android:textColor="@color/colorPrimaryDark"

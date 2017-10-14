@@ -5,6 +5,7 @@ import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,16 +29,19 @@ public class DisplayCodeActivity extends AppCompatActivity {
 
         mDisplayText = (HighlightJsView) findViewById(R.id.hjsv_code);
         TextView mDisplayTitle = (TextView) findViewById(R.id.tv_title);
+        ImageView mProblemDifficulty = (ImageView) findViewById(R.id.iv_problem_icon);
 
         Intent intentThatStartedThisActivity = getIntent();
 
-        if (intentThatStartedThisActivity.hasExtra(Intent.EXTRA_TITLE)) {
-            String problemName = intentThatStartedThisActivity.getStringExtra(Intent.EXTRA_TITLE);
-            mDisplayTitle.setText(problemName);
-            String downloadUrl = intentThatStartedThisActivity.getStringExtra(Intent.EXTRA_TEXT);
-            URL solutionURL = NetworkUtils.buildUrl(downloadUrl);
-            new GetSolution().execute(solutionURL);
-        }
+        Bundle extras = intentThatStartedThisActivity.getExtras();
+        String problemName = extras.getString("EXTRA_TITLE");
+        String downloadUrl = extras.getString("EXTRA_URL");
+        String iconString = extras.getString("EXTRA_ICON");
+
+        mDisplayTitle.setText(problemName);
+        mProblemDifficulty.setImageResource(Integer.parseInt(iconString));
+        URL solutionURL = NetworkUtils.buildUrl(downloadUrl);
+        new GetSolution().execute(solutionURL);
     }
 
     private class GetSolution extends AsyncTask<URL, Void, String> {

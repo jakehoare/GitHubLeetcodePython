@@ -73,9 +73,7 @@ public class GetProblemsFragment extends Fragment {
         super.onDetach();
     }
 
-    /*****************************/
     /**** GETTERS AND SETTERS ****/
-    /*****************************/
     public ArrayList<HashMap<String, String>> getAllProblems() {
         return allProblemsList;
     }
@@ -88,9 +86,7 @@ public class GetProblemsFragment extends Fragment {
         filteredProblemList = problems;
     }
 
-    /*****************************/
     /********* ASYNCTASK *********/
-    /*****************************/
     private class GetProblems extends AsyncTask<Void, Void, ArrayList<HashMap<String, String>>> {
         @Override
         protected void onPreExecute() {
@@ -135,9 +131,9 @@ public class GetProblemsFragment extends Fragment {
 
                     // Array of integers points to images stored in /res/drawable-ldpi/
                     int[] difficultyIcons = new int[]{
-                            R.mipmap.easy_icon,
-                            R.mipmap.medium_icon,
-                            R.mipmap.hard_icon
+                            R.drawable.easy_icon,
+                            R.drawable.medium_icon,
+                            R.drawable.hard_icon
                     };
 
                     // Looping through all problems

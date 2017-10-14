@@ -110,9 +110,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         return true;
     }
 
-    /*****************************/
     /**** FRAGMENT CALLBACKS *****/
-    /*****************************/
     @Override
     public void onPreExecute() {
         Toast.makeText(this, "Problem list is downloading",
@@ -126,17 +124,21 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         displayProblemList(filteredProblemList);
     }
 
-    /*****************************/
     /********* UTILITIES *********/
-    /*****************************/
     private void showSolution(int filteredIndex) {
         String downloadUrl = filteredProblemList.get(filteredIndex).get("download_url");
         String problemName = filteredProblemList.get(filteredIndex).get("name");
+        String iconString = filteredProblemList.get(filteredIndex).get("icon");
         Context context = MainActivity.this;
         Class destinationActivity = DisplayCodeActivity.class;
         Intent startChildActivityIntent = new Intent(context, destinationActivity);
-        startChildActivityIntent.putExtra(Intent.EXTRA_TEXT, downloadUrl);
-        startChildActivityIntent.putExtra(Intent.EXTRA_TITLE, problemName);
+        Bundle extras = new Bundle();
+        extras.putString("EXTRA_URL", downloadUrl);
+        extras.putString("EXTRA_TITLE",problemName);
+        extras.putString("EXTRA_ICON",iconString);
+        startChildActivityIntent.putExtras(extras);
+        //startChildActivityIntent.putExtra(Intent.EXTRA_TEXT, downloadUrl);
+        //startChildActivityIntent.putExtra(Intent.EXTRA_TITLE, problemName);
         startActivity(startChildActivityIntent);
     }
 
