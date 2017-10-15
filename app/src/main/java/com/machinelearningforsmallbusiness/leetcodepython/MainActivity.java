@@ -104,6 +104,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         showSolution(position);
     }
 
+    // Add the menu
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main, menu);
@@ -137,8 +138,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         extras.putString("EXTRA_TITLE",problemName);
         extras.putString("EXTRA_ICON",iconString);
         startChildActivityIntent.putExtras(extras);
-        //startChildActivityIntent.putExtra(Intent.EXTRA_TEXT, downloadUrl);
-        //startChildActivityIntent.putExtra(Intent.EXTRA_TITLE, problemName);
         startActivity(startChildActivityIntent);
     }
 

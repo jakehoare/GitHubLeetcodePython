@@ -17,6 +17,8 @@
     <string name="app_name">Leetcode Python</string>
     <string name="search">Search</string>
     <string name="random">Random</string>
+    <string name="feedback">Feedback</string>
+    <string name="mail_feedback_email">mailto:jake@machinelearningforsmallbusiness.com</string>
     <string name="search_query_placeholder">Enter a query, then click Search</string>
     <string name="difficulty_icon">Difficulty icon</string>
 </resources>

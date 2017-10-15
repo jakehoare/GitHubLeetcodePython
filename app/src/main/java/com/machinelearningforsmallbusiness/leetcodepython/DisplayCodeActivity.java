@@ -1,10 +1,13 @@
 package com.machinelearningforsmallbusiness.leetcodepython;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,6 +24,7 @@ public class DisplayCodeActivity extends AppCompatActivity {
 
     private String TAG = DisplayCodeActivity.class.getSimpleName();
     private HighlightJsView mDisplayText;
+    private String problemName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +38,7 @@ public class DisplayCodeActivity extends AppCompatActivity {
         Intent intentThatStartedThisActivity = getIntent();
 
         Bundle extras = intentThatStartedThisActivity.getExtras();
-        String problemName = extras.getString("EXTRA_TITLE");
+        problemName = extras.getString("EXTRA_TITLE");
         String downloadUrl = extras.getString("EXTRA_URL");
         String iconString = extras.getString("EXTRA_ICON");
 
@@ -42,6 +46,35 @@ public class DisplayCodeActivity extends AppCompatActivity {
         mProblemDifficulty.setImageResource(Integer.parseInt(iconString));
         URL solutionURL = NetworkUtils.buildUrl(downloadUrl);
         new GetSolution().execute(solutionURL);
+    }
+
+    // Handle menu item click
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int itemThatWasClickedId = item.getItemId();
+
+        if (itemThatWasClickedId == R.id.action_feedback) {
+            sendFeedback();
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    //Start a new activity for sending a feedback email
+    private void sendFeedback() {
+        Uri uri = Uri.parse(getString(R.string.mail_feedback_email));
+        Intent mailIntent = new Intent(Intent.ACTION_SENDTO, uri);
+        mailIntent.putExtra(Intent.EXTRA_SUBJECT,
+                problemName);
+        startActivity(mailIntent);
+    }
+
+    // Add the menu
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.problem, menu);
+        return true;
     }
 
     private class GetSolution extends AsyncTask<URL, Void, String> {
