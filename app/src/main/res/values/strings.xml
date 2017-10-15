@@ -21,4 +21,8 @@
     <string name="mail_feedback_email">mailto:jake@machinelearningforsmallbusiness.com</string>
     <string name="search_query_placeholder">Enter a query, then click Search</string>
     <string name="difficulty_icon">Difficulty icon</string>
+    <string name="toast_downloading">Problem list is downloading</string>
+    <string name="toast_empty">Problem list is empty. Remove the search</string>
+    <string name="general_feedback">Feedback on Leetcode Python app</string>
+
 </resources>

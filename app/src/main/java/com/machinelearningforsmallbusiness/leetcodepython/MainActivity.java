@@ -15,6 +15,7 @@
  */
 package com.machinelearningforsmallbusiness.leetcodepython;
 
+import android.net.Uri;
 import android.support.v4.app.FragmentManager;
 import android.content.Context;
 import android.content.Intent;
@@ -87,12 +88,17 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
         } else if (itemThatWasClickedId == R.id.action_random) {
             if (filteredProblemList.size() == 0) {
-                Toast.makeText(MainActivity.this, "Problem list is empty",
+                Toast.makeText(MainActivity.this, R.string.toast_empty,
                         Toast.LENGTH_LONG).show();
             } else {
                 int randomIndex = rand.nextInt(filteredProblemList.size());
                 showSolution(randomIndex);
             }
+            return true;
+
+        } else if (itemThatWasClickedId == R.id.action_feedback_main) {
+            sendFeedback();
+            return true;
         }
 
         return super.onOptionsItemSelected(item);
@@ -114,7 +120,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     /**** FRAGMENT CALLBACKS *****/
     @Override
     public void onPreExecute() {
-        Toast.makeText(this, "Problem list is downloading",
+        Toast.makeText(this, R.string.toast_downloading,
                 Toast.LENGTH_LONG).show();
     }
 
@@ -135,8 +141,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         Intent startChildActivityIntent = new Intent(context, destinationActivity);
         Bundle extras = new Bundle();
         extras.putString("EXTRA_URL", downloadUrl);
-        extras.putString("EXTRA_TITLE",problemName);
-        extras.putString("EXTRA_ICON",iconString);
+        extras.putString("EXTRA_TITLE", problemName);
+        extras.putString("EXTRA_ICON", iconString);
         startChildActivityIntent.putExtras(extras);
         startActivity(startChildActivityIntent);
     }
@@ -171,6 +177,14 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         if (focusedView != null)
             inputManager.hideSoftInputFromWindow(focusedView.getWindowToken(),
                     InputMethodManager.HIDE_NOT_ALWAYS);
+    }
+
+    //Start a new activity for sending a feedback email
+    private void sendFeedback() {
+        Uri uri = Uri.parse(getString(R.string.mail_feedback_email));
+        Intent mailIntent = new Intent(Intent.ACTION_SENDTO, uri);
+        mailIntent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.general_feedback));
+        startActivity(mailIntent);
     }
 
 }
