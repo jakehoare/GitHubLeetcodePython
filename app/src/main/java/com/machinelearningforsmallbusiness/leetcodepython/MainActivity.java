@@ -33,13 +33,13 @@ import android.widget.SimpleAdapter;
 import android.widget.Toast;
 
 import com.machinelearningforsmallbusiness.leetcodepython.utilities.GetProblemsFragment;
+import com.machinelearningforsmallbusiness.leetcodepython.utilities.ProblemAdapter;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
 
-public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener,
-        GetProblemsFragment.TaskCallbacks {
+public class MainActivity extends AppCompatActivity implements GetProblemsFragment.TaskCallbacks {
 
     private EditText mSearchBoxEditText;
     private ListView mProblemListView;
@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         mGetProblemsFragment = (GetProblemsFragment) fm.findFragmentByTag(TAG_FRAGMENT);
 
         // If the fragment is null then create it, which performs the AsyncTask and
-        // returns and diplays allProblemsList
+        // returns and displays allProblemsList
         if (mGetProblemsFragment == null) {
             mGetProblemsFragment = new GetProblemsFragment();
             fm.beginTransaction().add(mGetProblemsFragment, TAG_FRAGMENT).commit();
@@ -73,7 +73,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             filteredProblemList = mGetProblemsFragment.getFilteredProblems();
             displayProblemList(filteredProblemList);
         }
-        mProblemListView.setOnItemClickListener(this);
     }
 
     // Handle menu item click
@@ -117,10 +116,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     }
 
     // Handle list item clicked
-    @Override
-    public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-        showSolution(position);
-    }
+    //@Override
+    //public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+    //    showSolution(position);
+    //}
 
     // Add the menu
     @Override
@@ -176,10 +175,19 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         if (problemList == null)
             return;
 
-        ListAdapter adapter = new SimpleAdapter(MainActivity.this, problemList,
-                R.layout.list_item, new String[]{"name", "icon"},
-                new int[]{R.id.tv_name, R.id.iv_difficulty_icon});
+        ProblemAdapter adapter = new ProblemAdapter(this, R.layout.list_item, problemList);
         mProblemListView.setAdapter(adapter);
+        mProblemListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                ListView listView = (ListView) view.getParent();
+                if (listView != null) {
+                    showSolution(position);
+                }
+            }
+        });
     }
 
     private void hideKeyboard() {
