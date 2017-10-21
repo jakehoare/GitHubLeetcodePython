@@ -1,4 +1,4 @@
-package com.machinelearningforsmallbusiness.leetcodepython.utilities;
+package com.machinelearningforsmallbusiness.seemycode.utilities;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;

@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.machinelearningforsmallbusiness.leetcodepython;
+package com.machinelearningforsmallbusiness.seemycode;
 
 import android.net.Uri;
 import android.support.v4.app.FragmentManager;
@@ -30,8 +30,8 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.machinelearningforsmallbusiness.leetcodepython.utilities.GetProblemsFragment;
-import com.machinelearningforsmallbusiness.leetcodepython.utilities.ProblemAdapter;
+import com.machinelearningforsmallbusiness.seemycode.utilities.GetProblemsFragment;
+import com.machinelearningforsmallbusiness.seemycode.utilities.ProblemAdapter;
 
 import java.util.ArrayList;
 import java.util.HashMap;
