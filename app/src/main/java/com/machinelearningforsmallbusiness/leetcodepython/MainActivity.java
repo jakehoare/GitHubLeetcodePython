@@ -21,15 +21,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.AdapterView;
 import android.widget.EditText;
-import android.widget.ListAdapter;
-import android.widget.ListView;
-import android.widget.SimpleAdapter;
 import android.widget.Toast;
 
 import com.machinelearningforsmallbusiness.leetcodepython.utilities.GetProblemsFragment;
@@ -42,7 +40,7 @@ import java.util.Random;
 public class MainActivity extends AppCompatActivity implements GetProblemsFragment.TaskCallbacks {
 
     private EditText mSearchBoxEditText;
-    private ListView mProblemListView;
+    private RecyclerView mProblemListView;
     private ArrayList<HashMap<String, String>> allProblemsList = new ArrayList<>();
     private ArrayList<HashMap<String, String>> filteredProblemList = new ArrayList<>();
     final Random rand = new Random();
@@ -56,7 +54,10 @@ public class MainActivity extends AppCompatActivity implements GetProblemsFragme
         setContentView(R.layout.activity_main);
 
         mSearchBoxEditText = (EditText) findViewById(R.id.et_search_box);
-        mProblemListView = (ListView) findViewById(R.id.lv_problem_list);
+
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
+        mProblemListView = (RecyclerView) findViewById(R.id.lv_problem_list);
+        mProblemListView.setLayoutManager(layoutManager);
 
         FragmentManager fm = getSupportFragmentManager();
         mGetProblemsFragment = (GetProblemsFragment) fm.findFragmentByTag(TAG_FRAGMENT);
@@ -71,7 +72,7 @@ public class MainActivity extends AppCompatActivity implements GetProblemsFragme
             // https://developer.android.com/guide/topics/resources/runtime-changes.html
             allProblemsList = mGetProblemsFragment.getAllProblems();
             filteredProblemList = mGetProblemsFragment.getFilteredProblems();
-            displayProblemList(filteredProblemList);
+            updateProblemList(filteredProblemList);
         }
     }
 
@@ -115,12 +116,6 @@ public class MainActivity extends AppCompatActivity implements GetProblemsFragme
         return super.onOptionsItemSelected(item);
     }
 
-    // Handle list item clicked
-    //@Override
-    //public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-    //    showSolution(position);
-    //}
-
     // Add the menu
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -139,7 +134,8 @@ public class MainActivity extends AppCompatActivity implements GetProblemsFragme
     public void onPostExecute(ArrayList<HashMap<String, String>> problemsList) {
         allProblemsList = problemsList;
         filteredProblemList = problemsList;
-        displayProblemList(filteredProblemList);
+        ProblemAdapter adapter = new ProblemAdapter(this, R.layout.list_item, problemsList);
+        mProblemListView.setAdapter(adapter);
     }
 
     /********* UTILITIES *********/
@@ -168,26 +164,12 @@ public class MainActivity extends AppCompatActivity implements GetProblemsFragme
 
         // store filteredProblemList in fragment
         mGetProblemsFragment.setFilteredProblems(filteredProblemList);
-        displayProblemList(filteredProblemList);
+        updateProblemList(filteredProblemList);
     }
 
-    private void displayProblemList(ArrayList<HashMap<String, String>> problemList) {
-        if (problemList == null)
-            return;
-
-        ProblemAdapter adapter = new ProblemAdapter(this, R.layout.list_item, problemList);
-        mProblemListView.setAdapter(adapter);
-        mProblemListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-                ListView listView = (ListView) view.getParent();
-                if (listView != null) {
-                    showSolution(position);
-                }
-            }
-        });
+    private void updateProblemList(ArrayList<HashMap<String, String>> problemList) {
+        ProblemAdapter newAdapter = new ProblemAdapter(this, R.layout.list_item, problemList);
+        mProblemListView.swapAdapter(newAdapter, false);
     }
 
     private void hideKeyboard() {

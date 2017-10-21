@@ -1,19 +1,21 @@
 package com.machinelearningforsmallbusiness.leetcodepython.utilities;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.machinelearningforsmallbusiness.leetcodepython.DisplayCodeActivity;
 import com.machinelearningforsmallbusiness.leetcodepython.R;
 
 import java.util.HashMap;
 
 
-// NOT YET HOOKED UP TO BE USED BY MAIN ACTIVITY //
 
-public class ProblemHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+class ProblemHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
     private final ImageView mDifficultyIcon;
     private final TextView mProblemName;
@@ -21,35 +23,40 @@ public class ProblemHolder extends RecyclerView.ViewHolder implements View.OnCli
     private HashMap<String, String> problem;
     private Context context;
 
-    public ProblemHolder(Context context, View itemView) {
+    ProblemHolder(Context context, View itemView) {
 
         super(itemView);
 
-        // 1. Set the context
         this.context = context;
 
-        // 2. Set up the UI widgets of the holder
         this.mDifficultyIcon = (ImageView) itemView.findViewById(R.id.iv_difficulty_icon);
         this.mProblemName = (TextView) itemView.findViewById(R.id.tv_name);
 
-        // 3. Set the "onClick" listener of the holder
         itemView.setOnClickListener(this);
     }
 
-    public void bindProblem(HashMap<String, String> problem) {
+    void bindProblem(HashMap<String, String> problem) {
 
-        // 4. Bind the data to the ViewHolder
         this.problem = problem;
         this.mProblemName.setText(problem.get("name"));
-        this.mDifficultyIcon.setImageResource(Integer.getInteger(problem.get("icon")));
+        this.mDifficultyIcon.setImageResource(Integer.parseInt(problem.get("icon")));
     }
 
     @Override
     public void onClick(View v) {
 
-        // 5. Handle the onClick event for the ViewHolder
-        if (this.problem != null) {
-            // TODOO
+        if (problem != null) {
+            String downloadUrl = problem.get("download_url");
+            String problemName = problem.get("name");
+            String iconString = problem.get("icon");
+            Class destinationActivity = DisplayCodeActivity.class;
+            Intent startChildActivityIntent = new Intent(context, destinationActivity);
+            Bundle extras = new Bundle();
+            extras.putString("EXTRA_URL", downloadUrl);
+            extras.putString("EXTRA_TITLE", problemName);
+            extras.putString("EXTRA_ICON", iconString);
+            startChildActivityIntent.putExtras(extras);
+            context.startActivity(startChildActivityIntent);
         }
     }
 }
