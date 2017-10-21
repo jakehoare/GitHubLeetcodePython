@@ -168,6 +168,8 @@ public class MainActivity extends AppCompatActivity implements GetProblemsFragme
     }
 
     private void updateProblemList(ArrayList<HashMap<String, String>> problemList) {
+        if (problemList == null)
+            return;
         ProblemAdapter newAdapter = new ProblemAdapter(this, R.layout.list_item, problemList);
         mProblemListView.swapAdapter(newAdapter, false);
     }
