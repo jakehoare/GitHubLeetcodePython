@@ -1,4 +1,4 @@
-package com.machinelearningforsmallbusiness.seemycode;
+package com.machinelearningforsmallbusiness.leetcodepython;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -12,7 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.machinelearningforsmallbusiness.seemycode.utilities.NetworkUtils;
+import com.machinelearningforsmallbusiness.leetcodepython.utilities.NetworkUtils;
 import com.pddstudio.highlightjs.HighlightJsView;
 import com.pddstudio.highlightjs.models.Language;
 import com.pddstudio.highlightjs.models.Theme;

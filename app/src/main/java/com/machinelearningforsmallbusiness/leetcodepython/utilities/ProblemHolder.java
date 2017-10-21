@@ -1,4 +1,4 @@
-package com.machinelearningforsmallbusiness.seemycode.utilities;
+package com.machinelearningforsmallbusiness.leetcodepython.utilities;
 
 import android.content.Context;
 import android.content.Intent;
@@ -8,8 +8,8 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.machinelearningforsmallbusiness.seemycode.DisplayCodeActivity;
-import com.machinelearningforsmallbusiness.seemycode.R;
+import com.machinelearningforsmallbusiness.leetcodepython.DisplayCodeActivity;
+import com.machinelearningforsmallbusiness.leetcodepython.R;
 
 import java.util.HashMap;
 

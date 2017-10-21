@@ -1,4 +1,4 @@
-package com.machinelearningforsmallbusiness.seemycode.utilities;
+package com.machinelearningforsmallbusiness.leetcodepython.utilities;
 
 import android.content.Context;
 import android.support.v4.app.Fragment;
@@ -6,7 +6,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 
-import com.machinelearningforsmallbusiness.seemycode.R;
+import com.machinelearningforsmallbusiness.leetcodepython.R;
 
 import org.json.JSONArray;
 import org.json.JSONException;

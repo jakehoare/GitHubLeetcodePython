@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.machinelearningforsmallbusiness.seemycode">
+    package="com.machinelearningforsmallbusiness.leetcodepython">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name="com.machinelearningforsmallbusiness.seemycode.MainActivity"
+        <activity android:name="com.machinelearningforsmallbusiness.leetcodepython.MainActivity"
             android:windowSoftInputMode="stateHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,7 +19,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="com.machinelearningforsmallbusiness.seemycode.DisplayCodeActivity">
+        <activity android:name="com.machinelearningforsmallbusiness.leetcodepython.DisplayCodeActivity">
         </activity>
 
     </application>
