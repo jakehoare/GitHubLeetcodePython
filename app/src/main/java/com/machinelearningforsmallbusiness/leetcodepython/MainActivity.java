@@ -32,6 +32,7 @@ import android.widget.Toast;
 
 import com.machinelearningforsmallbusiness.leetcodepython.utilities.GetProblemsFragment;
 import com.machinelearningforsmallbusiness.leetcodepython.utilities.ProblemAdapter;
+import com.machinelearningforsmallbusiness.leetcodepython.utilities.ShowSolution;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -101,10 +102,10 @@ public class MainActivity extends AppCompatActivity implements GetProblemsFragme
                     message = R.string.toast_empty;
                 }
                 Toast.makeText(MainActivity.this, message,
-                        Toast.LENGTH_LONG).show();
+                        Toast.LENGTH_SHORT).show();
             } else {
                 int randomIndex = rand.nextInt(filteredProblemList.size());
-                showSolution(randomIndex);
+                ShowSolution.showSolution(filteredProblemList.get(randomIndex), MainActivity.this);
             }
             return true;
 
@@ -139,21 +140,6 @@ public class MainActivity extends AppCompatActivity implements GetProblemsFragme
     }
 
     /********* UTILITIES *********/
-    private void showSolution(int filteredIndex) {
-        String downloadUrl = filteredProblemList.get(filteredIndex).get("download_url");
-        String problemName = filteredProblemList.get(filteredIndex).get("name");
-        String iconString = filteredProblemList.get(filteredIndex).get("icon");
-        Context context = MainActivity.this;
-        Class destinationActivity = DisplayCodeActivity.class;
-        Intent startChildActivityIntent = new Intent(context, destinationActivity);
-        Bundle extras = new Bundle();
-        extras.putString("EXTRA_URL", downloadUrl);
-        extras.putString("EXTRA_TITLE", problemName);
-        extras.putString("EXTRA_ICON", iconString);
-        startChildActivityIntent.putExtras(extras);
-        startActivity(startChildActivityIntent);
-    }
-
     private void filterProblemList() {
         String filterText = mSearchBoxEditText.getText().toString().toLowerCase();
         filteredProblemList = new ArrayList<>();
