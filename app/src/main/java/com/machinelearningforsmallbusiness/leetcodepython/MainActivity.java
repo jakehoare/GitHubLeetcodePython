@@ -42,8 +42,8 @@ public class MainActivity extends AppCompatActivity implements GetProblemsFragme
 
     private EditText mSearchBoxEditText;
     private RecyclerView mProblemListView;
-    private ArrayList<HashMap<String, String>> allProblemsList = new ArrayList<>();
-    private ArrayList<HashMap<String, String>> filteredProblemList = new ArrayList<>();
+    private ArrayList<HashMap<String, String>> allProblemsList;
+    private ArrayList<HashMap<String, String>> filteredProblemList;
     final Random rand = new Random();
     private GetProblemsFragment mGetProblemsFragment;
     private static final String TAG_FRAGMENT = "get_problems_fragement";
@@ -83,7 +83,7 @@ public class MainActivity extends AppCompatActivity implements GetProblemsFragme
         int itemThatWasClickedId = item.getItemId();
 
         if (itemThatWasClickedId == R.id.action_search) {
-            if (allProblemsList.size() == 0) {
+            if (allProblemsList == null) {
                 Toast.makeText(MainActivity.this, R.string.not_downloaded,
                         Toast.LENGTH_SHORT).show();
             } else {
@@ -94,14 +94,11 @@ public class MainActivity extends AppCompatActivity implements GetProblemsFragme
 
         } else if (itemThatWasClickedId == R.id.action_random) {
 
-            if (filteredProblemList.size() == 0) {
-                int message;
-                if (allProblemsList.size() == 0) {
-                    message = R.string.not_downloaded;
-                } else {
-                    message = R.string.toast_empty;
-                }
-                Toast.makeText(MainActivity.this, message,
+            if (filteredProblemList == null) {
+                Toast.makeText(MainActivity.this, R.string.not_downloaded,
+                        Toast.LENGTH_SHORT).show();
+            } else if (filteredProblemList.size() == 0) {
+                Toast.makeText(MainActivity.this, R.string.toast_empty,
                         Toast.LENGTH_SHORT).show();
             } else {
                 int randomIndex = rand.nextInt(filteredProblemList.size());
