@@ -25,15 +25,16 @@ public class DisplayCodeActivity extends AppCompatActivity {
     private String TAG = DisplayCodeActivity.class.getSimpleName();
     private HighlightJsView mDisplayText;
     private String problemName;
+    private String solution;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_displaycode);
 
-        mDisplayText = (HighlightJsView) findViewById(R.id.hjsv_code);
-        TextView mDisplayTitle = (TextView) findViewById(R.id.tv_title);
-        ImageView mProblemDifficulty = (ImageView) findViewById(R.id.iv_problem_icon);
+        mDisplayText = findViewById(R.id.hjsv_code);
+        TextView mDisplayTitle = findViewById(R.id.tv_title);
+        ImageView mProblemDifficulty = findViewById(R.id.iv_problem_icon);
 
         Intent intentThatStartedThisActivity = getIntent();
 
@@ -44,8 +45,16 @@ public class DisplayCodeActivity extends AppCompatActivity {
 
         mDisplayTitle.setText(problemName);
         mProblemDifficulty.setImageResource(Integer.parseInt(iconString));
-        URL solutionURL = NetworkUtils.buildUrl(downloadUrl);
-        new GetSolution().execute(solutionURL);
+
+        if (savedInstanceState == null) {
+            URL solutionURL = NetworkUtils.buildUrl(downloadUrl);
+            new GetSolution().execute(solutionURL);
+            Toast.makeText(this, R.string.toast_downloading_solution,
+                    Toast.LENGTH_SHORT).show();
+        } else {
+            solution = savedInstanceState.getString("solution_text");
+            mDisplayText.setSource(solution);
+        }
     }
 
     // Handle menu item click
@@ -77,6 +86,16 @@ public class DisplayCodeActivity extends AppCompatActivity {
         return true;
     }
 
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        // Save the current solution
+        savedInstanceState.putString("solution_text", solution);
+
+        // Call the superclass so it can save the view hierarchy state
+        super.onSaveInstanceState(savedInstanceState);
+    }
+
+
     private class GetSolution extends AsyncTask<URL, Void, String> {
         @Override
         protected void onPreExecute() {
@@ -86,7 +105,6 @@ public class DisplayCodeActivity extends AppCompatActivity {
 
         @Override
         protected String doInBackground(URL... params) {
-            String solution = null;
             try {
                 solution = NetworkUtils.getResponseFromHttpUrl(params[0]);
             } catch (IOException e) {

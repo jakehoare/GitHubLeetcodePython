@@ -35,7 +35,9 @@ import com.machinelearningforsmallbusiness.leetcodepython.utilities.ProblemAdapt
 import com.machinelearningforsmallbusiness.leetcodepython.utilities.ShowSolution;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity implements GetProblemsFragment.TaskCallbacks {
@@ -54,10 +56,10 @@ public class MainActivity extends AppCompatActivity implements GetProblemsFragme
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mSearchBoxEditText = (EditText) findViewById(R.id.et_search_box);
+        mSearchBoxEditText = findViewById(R.id.et_search_box);
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
-        mProblemListView = (RecyclerView) findViewById(R.id.lv_problem_list);
+        mProblemListView = findViewById(R.id.lv_problem_list);
         mProblemListView.setLayoutManager(layoutManager);
 
         FragmentManager fm = getSupportFragmentManager();
@@ -141,9 +143,18 @@ public class MainActivity extends AppCompatActivity implements GetProblemsFragme
         String filterText = mSearchBoxEditText.getText().toString().toLowerCase();
         filteredProblemList = new ArrayList<>();
 
-        for (HashMap<String, String> problem : allProblemsList)
-            if (problem.get("name").toLowerCase().contains(filterText))
-                filteredProblemList.add(problem);
+        List<String> difficultyLevels = new ArrayList<>(Arrays.asList("easy", "medium", "hard"));
+        int level = difficultyLevels.indexOf(filterText);
+
+        if (level == -1) {          // search the problem names
+            for (HashMap<String, String> problem : allProblemsList)
+                if (problem.get("name").toLowerCase().contains(filterText))
+                    filteredProblemList.add(problem);
+        } else {                    // get problems of specific difficulty
+            for (HashMap<String, String> problem : allProblemsList)
+                if (Integer.parseInt(problem.get("difficulty")) == level + 1)
+                    filteredProblemList.add(problem);
+        }
 
         // store filteredProblemList in fragment
         mGetProblemsFragment.setFilteredProblems(filteredProblemList);

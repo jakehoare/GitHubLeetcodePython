@@ -163,12 +163,14 @@ public class GetProblemsFragment extends Fragment {
                         problem.put("type", type);
                         problem.put("download_url", download_url);
                         problem.put("question_nb", questionString);
-                        problem.put("difficulty", difficultyString);
-                        try{
+
+                        try {   // default to medium if no stated difficulty
                             difficultyInt = Integer.parseInt(difficultyString);
-                        } catch (NumberFormatException e){
+                        } catch (NumberFormatException e) {
                             difficultyInt = 2;
+                            difficultyString = "2";
                         }
+                        problem.put("difficulty", difficultyString);
                         problem.put("icon",
                                 Integer.toString(difficultyIcons[difficultyInt - 1]));
 
