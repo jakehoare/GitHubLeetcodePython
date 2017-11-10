@@ -53,6 +53,8 @@ public class DisplayCodeActivity extends AppCompatActivity {
                     Toast.LENGTH_SHORT).show();
         } else {
             solution = savedInstanceState.getString("solution_text");
+            mDisplayText.setTheme(Theme.GITHUB);
+            mDisplayText.setHighlightLanguage(Language.PYTHON);
             mDisplayText.setSource(solution);
         }
     }
@@ -96,15 +98,14 @@ public class DisplayCodeActivity extends AppCompatActivity {
     }
 
 
-    private class GetSolution extends AsyncTask<URL, Void, String> {
+    private class GetSolution extends AsyncTask<URL, Void, Void> {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            // no Toast because shown when orientation changes
         }
 
         @Override
-        protected String doInBackground(URL... params) {
+        protected Void doInBackground(URL... params) {
             try {
                 solution = NetworkUtils.getResponseFromHttpUrl(params[0]);
             } catch (IOException e) {
@@ -131,11 +132,12 @@ public class DisplayCodeActivity extends AppCompatActivity {
             int pos = solution.indexOf("\n");
             while (--linesToRemove > 0)
                 pos = solution.indexOf("\n", pos + 1);
-            return solution.substring(pos);
+            solution = solution.substring(pos);
+            return null;
         }
 
         @Override
-        protected void onPostExecute(String solution) {
+        protected void onPostExecute(Void aVoid) {
             // https://github.com/PDDStudio/highlightjs-android
             mDisplayText.setTheme(Theme.GITHUB);
             mDisplayText.setHighlightLanguage(Language.PYTHON);
