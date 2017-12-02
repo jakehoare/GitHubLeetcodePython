@@ -68,6 +68,10 @@ public class DisplayCodeActivity extends AppCompatActivity {
             sendFeedback();
             return true;
         }
+        if (itemThatWasClickedId == R.id.action_forward) {
+            forwardSolution();
+            return true;
+        }
 
         return super.onOptionsItemSelected(item);
     }
@@ -76,8 +80,16 @@ public class DisplayCodeActivity extends AppCompatActivity {
     private void sendFeedback() {
         Uri uri = Uri.parse(getString(R.string.mail_feedback_email));
         Intent mailIntent = new Intent(Intent.ACTION_SENDTO, uri);
-        mailIntent.putExtra(Intent.EXTRA_SUBJECT,
-                problemName);
+        mailIntent.putExtra(Intent.EXTRA_SUBJECT, problemName);
+        startActivity(mailIntent);
+    }
+
+    //Start a new activity for forwarding the solution by email
+    private void forwardSolution() {
+        Uri uri = Uri.parse(getString(R.string.mail_blank));
+        Intent mailIntent = new Intent(Intent.ACTION_SENDTO, uri);
+        mailIntent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.forward_subject) + problemName);
+        mailIntent.putExtra(Intent.EXTRA_TEXT, getString(R.string.forward_source) + solution);
         startActivity(mailIntent);
     }
 

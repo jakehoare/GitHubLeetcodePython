@@ -18,7 +18,11 @@
     <string name="search">Search</string>
     <string name="random">Random</string>
     <string name="feedback">Feedback</string>
+    <string name="forward">Forward</string>
     <string name="mail_feedback_email">mailto:jake@machinelearningforsmallbusiness.com</string>
+    <string name="mail_blank">mailto:</string>
+    <string name="forward_subject">"Solution to Leetcode Problem "</string>
+    <string name="forward_source"># From Leetcode Python android app\n</string>
     <string name="search_query_placeholder">Enter a query, then click Search</string>
     <string name="difficulty_icon">Difficulty icon</string>
     <string name="toast_downloading">Problem list is downloading</string>

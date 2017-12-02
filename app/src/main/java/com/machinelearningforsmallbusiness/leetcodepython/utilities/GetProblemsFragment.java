@@ -152,9 +152,15 @@ public class GetProblemsFragment extends Fragment {
                         String questionString = name.substring(0, name.indexOf(' ') - 1);
                         int questionInt = Integer.parseInt(questionString);
                         questionString = Integer.toString(questionInt);
-                        String difficultyString = difficultyMapping.get(questionString);
+                        String difficultyString;
                         int difficultyInt;
-
+                        if (difficultyMapping.containsKey(questionString)) {
+                            difficultyString = difficultyMapping.get(questionString);
+                            difficultyInt = Integer.parseInt(difficultyString);
+                        } else {    // default to medium if no stated difficulty
+                            difficultyString = "2";
+                            difficultyInt = 2;
+                        }
                         // Temp hash map for single problem
                         HashMap<String, String> problem = new HashMap<>();
 
@@ -163,13 +169,6 @@ public class GetProblemsFragment extends Fragment {
                         problem.put("type", type);
                         problem.put("download_url", download_url);
                         problem.put("question_nb", questionString);
-
-                        try {   // default to medium if no stated difficulty
-                            difficultyInt = Integer.parseInt(difficultyString);
-                        } catch (NumberFormatException e) {
-                            difficultyInt = 2;
-                            difficultyString = "2";
-                        }
                         problem.put("difficulty", difficultyString);
                         problem.put("icon",
                                 Integer.toString(difficultyIcons[difficultyInt - 1]));
