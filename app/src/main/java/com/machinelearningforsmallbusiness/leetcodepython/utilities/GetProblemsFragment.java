@@ -154,7 +154,7 @@ public class GetProblemsFragment extends Fragment {
                         questionString = Integer.toString(questionInt);
                         String difficultyString;
                         int difficultyInt;
-                        if (difficultyMapping.containsKey(questionString)) {
+                        if (difficultyMapping != null && difficultyMapping.containsKey(questionString)) {
                             difficultyString = difficultyMapping.get(questionString);
                             difficultyInt = Integer.parseInt(difficultyString);
                         } else {    // default to medium if no stated difficulty

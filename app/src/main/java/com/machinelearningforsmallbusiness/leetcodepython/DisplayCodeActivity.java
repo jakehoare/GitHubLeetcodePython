@@ -1,5 +1,6 @@
 package com.machinelearningforsmallbusiness.leetcodepython;
 
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -81,7 +82,12 @@ public class DisplayCodeActivity extends AppCompatActivity {
         Uri uri = Uri.parse(getString(R.string.mail_feedback_email));
         Intent mailIntent = new Intent(Intent.ACTION_SENDTO, uri);
         mailIntent.putExtra(Intent.EXTRA_SUBJECT, problemName);
-        startActivity(mailIntent);
+        try {
+            startActivity(mailIntent);
+        } catch (ActivityNotFoundException e) {
+            Toast.makeText(getApplicationContext(), R.string.no_email,
+                    Toast.LENGTH_LONG).show();
+        }
     }
 
     //Start a new activity for forwarding the solution by email
@@ -90,7 +96,12 @@ public class DisplayCodeActivity extends AppCompatActivity {
         Intent mailIntent = new Intent(Intent.ACTION_SENDTO, uri);
         mailIntent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.forward_subject) + problemName);
         mailIntent.putExtra(Intent.EXTRA_TEXT, getString(R.string.forward_source) + solution);
-        startActivity(mailIntent);
+        try {
+            startActivity(mailIntent);
+        } catch (ActivityNotFoundException e) {
+            Toast.makeText(getApplicationContext(), R.string.no_email,
+                    Toast.LENGTH_LONG).show();
+        }
     }
 
     // Add the menu

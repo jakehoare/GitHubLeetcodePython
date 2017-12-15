@@ -30,4 +30,5 @@
     <string name="toast_empty">Problem list is empty. Please remove the search</string>
     <string name="general_feedback">Feedback on Leetcode Python app</string>
     <string name="not_downloaded">Please wait for problem list to download</string>
+    <string name="no_email">Cannot open email application. Please email jake@machinelearningforsmallbusiness.com</string>
 </resources>
