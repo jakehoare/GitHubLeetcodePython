@@ -8,10 +8,10 @@ import android.util.Log;
 
 import com.machinelearningforsmallbusiness.leetcodepython.R;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -19,8 +19,7 @@ import java.util.HashMap;
 
 public class GetProblemsFragment extends Fragment {
 
-    final static String GITHUB_BASE_URL = "https://api.github.com/repos/jakehoare/leetcode/contents";
-    final static String LEETCODE_API_URL = "https://leetcode.com/api/problems/algorithms/";
+    final static String GITHUB_INDEX_URL = "https://raw.githubusercontent.com/jakehoare/leetcode/master/index.csv";
     private String TAG = GetProblemsFragment.class.getSimpleName();
     private ArrayList<HashMap<String, String>> allProblemsList;
     private ArrayList<HashMap<String, String>> filteredProblemList;
@@ -96,18 +95,48 @@ public class GetProblemsFragment extends Fragment {
         @Override
         protected ArrayList<HashMap<String, String>> doInBackground(Void... params) {
 
-            // Get mapping from problem to difficulty from leetcode API
-            URL leetcodeAPIURL = NetworkUtils.buildUrl(LEETCODE_API_URL);
-            String jsonLeetocdeString = NetworkUtils.getJsonfromURL(leetcodeAPIURL);
-            Log.d(TAG, "Response from Leetcode url: " + jsonLeetocdeString);
-            parseLeetcodeJson(jsonLeetocdeString);
-
-            // Get solutions from GitHub
             allProblemsList = new ArrayList<>();
-            URL allProblemsListURL = NetworkUtils.buildUrl(GITHUB_BASE_URL);
-            String jsonProblemsString = NetworkUtils.getJsonfromURL(allProblemsListURL);
-            Log.d(TAG, "Response from Github url: " + jsonProblemsString);
-            parseProblemsJson(jsonProblemsString);
+            int[] difficultyIcons = new int[]{
+                    R.drawable.easy_icon,
+                    R.drawable.medium_icon,
+                    R.drawable.hard_icon
+            };
+
+            // Get solutions from GitHub index.csv file
+            HttpURLConnection conn = null;
+            try {
+                URL url = new URL(GITHUB_INDEX_URL);
+                conn = (HttpURLConnection) url.openConnection();
+                InputStream in = conn.getInputStream();
+                if(conn.getResponseCode() == 200)
+                {
+                    BufferedReader br = new BufferedReader(new InputStreamReader(in));
+                    String inputLine;
+                    while ((inputLine = br.readLine()) != null) {
+                        String[] indexString = inputLine.split(",");
+
+                        // Temp hash map for single problem
+                        HashMap<String, String> problem = new HashMap<>();
+
+                        // Adding data to HashMap key => value
+                        problem.put("question_nb", indexString[0]);
+                        problem.put("difficulty", indexString[1]);
+                        problem.put("name", indexString[2]);
+                        problem.put("download_url", indexString[3]);
+                        problem.put("icon",
+                                Integer.toString(difficultyIcons[Integer.parseInt(indexString[1]) - 1]));
+
+                        // Adding problem to problem list
+                        allProblemsList.add(problem);
+                    }
+                }
+
+            } catch (Exception e){
+                Log.e("Error", e.toString());
+            } finally {
+                if(conn != null)
+                    conn.disconnect();
+            }
 
             filteredProblemList = allProblemsList;
             return allProblemsList;
@@ -117,97 +146,6 @@ public class GetProblemsFragment extends Fragment {
         protected void onPostExecute(ArrayList<HashMap<String, String>> problemsList) {
             if (mCallbacks != null) {
                 mCallbacks.onPostExecute(problemsList);
-            }
-        }
-
-        private void parseProblemsJson(String jsonProblemsString) {
-            if (jsonProblemsString != null) {
-                try {
-                    // Getting top-level JSON Array node
-                    // https://stackoverflow.com/questions/10164741/get-jsonarray-without-array-name
-                    JSONArray problems = new JSONArray(jsonProblemsString);
-
-                    // Array of integers points to images stored in /res/drawable-ldpi/
-                    int[] difficultyIcons = new int[]{
-                            R.drawable.easy_icon,
-                            R.drawable.medium_icon,
-                            R.drawable.hard_icon
-                    };
-
-                    // Looping through all problems
-                    for (int i = 0; i < problems.length(); i++) {
-                        JSONObject p = problems.getJSONObject(i);
-                        String name = p.getString("name");
-                        String type = p.getString("type");
-                        String download_url = p.getString("download_url");
-
-                        // Remove non-Python
-                        if (!type.equals("file") || !name.endsWith(".py"))
-                            continue;
-
-                        // Remove suffix, replace underscores
-                        name = name.substring(0, name.length() - 3);
-                        name = name.replaceFirst("_", ": ").replaceAll("_", " ");
-                        // Get number without leading zeros
-                        String questionString = name.substring(0, name.indexOf(' ') - 1);
-                        int questionInt = Integer.parseInt(questionString);
-                        questionString = Integer.toString(questionInt);
-                        String difficultyString;
-                        int difficultyInt;
-                        if (difficultyMapping != null && difficultyMapping.containsKey(questionString)) {
-                            difficultyString = difficultyMapping.get(questionString);
-                            difficultyInt = Integer.parseInt(difficultyString);
-                        } else {    // default to medium if no stated difficulty
-                            difficultyString = "2";
-                            difficultyInt = 2;
-                        }
-                        // Temp hash map for single problem
-                        HashMap<String, String> problem = new HashMap<>();
-
-                        // Adding data to HashMap key => value
-                        problem.put("name", name);
-                        problem.put("type", type);
-                        problem.put("download_url", download_url);
-                        problem.put("question_nb", questionString);
-                        problem.put("difficulty", difficultyString);
-                        problem.put("icon",
-                                Integer.toString(difficultyIcons[difficultyInt - 1]));
-
-                        // Adding problem to problem list
-                        allProblemsList.add(problem);
-                    }
-                } catch (final JSONException e) {
-                    Log.e(TAG, "Json parsing error: " + e.getMessage());
-                }
-
-            } else {
-                Log.e(TAG, "Couldn't get json from server.");
-            }
-        }
-
-        private void parseLeetcodeJson(String jsonLeetocdeString) {
-            if (jsonLeetocdeString != null) {
-                try {
-                    // Getting top-level JSON Object node
-                    JSONObject leetcode = new JSONObject(jsonLeetocdeString);
-                    JSONArray problems = leetcode.getJSONArray("stat_status_pairs");
-                    difficultyMapping = new HashMap<>();
-
-                    // Looping through all problems
-                    for (int i = 0; i < problems.length(); i++) {
-                        JSONObject problem = problems.getJSONObject(i);
-                        String questionID = problem.getJSONObject("stat").getString("question_id");
-                        String difficultyLevel = problem.getJSONObject("difficulty").getString("level");
-
-                        // Adding each problem HashMap question => difficulty
-                        difficultyMapping.put(questionID, difficultyLevel);
-                    }
-                } catch (final JSONException e) {
-                    Log.e(TAG, "Json parsing error: " + e.getMessage());
-                }
-
-            } else {
-                Log.e(TAG, "Couldn't get json from server.");
             }
         }
 
