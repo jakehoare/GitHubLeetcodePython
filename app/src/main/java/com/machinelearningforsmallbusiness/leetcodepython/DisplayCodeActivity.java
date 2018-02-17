@@ -156,6 +156,24 @@ public class DisplayCodeActivity extends AppCompatActivity {
             while (--linesToRemove > 0)
                 pos = solution.indexOf("\n", pos + 1);
             solution = solution.substring(pos);
+
+            // Add line breaks in description and solution description for lines that are more than
+            // 80 characters long. New break at first space after mid point.
+            StringBuilder sb = new StringBuilder(solution);
+            int lineStart = 1;
+            int nextBreak;
+            int newBreak;
+            while (sb.charAt(lineStart) == '#' || sb.charAt(lineStart) == '\n') {   // until code
+                nextBreak = sb.indexOf("\n", lineStart);
+                newBreak = sb.indexOf(" ", lineStart + (nextBreak - lineStart) / 2);
+                if (nextBreak - lineStart > 80 && newBreak < nextBreak) {
+                    sb.replace(newBreak, newBreak + 1, "\n# ");
+                    lineStart = nextBreak + 3;
+                } else
+                    lineStart = nextBreak + 1;
+            }
+            solution = sb.toString();
+
             return null;
         }
 
