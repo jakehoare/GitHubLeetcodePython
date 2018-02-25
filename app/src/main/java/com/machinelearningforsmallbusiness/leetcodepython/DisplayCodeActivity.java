@@ -133,6 +133,8 @@ public class DisplayCodeActivity extends AppCompatActivity {
                 solution = NetworkUtils.getResponseFromHttpUrl(params[0]);
             } catch (IOException e) {
                 e.printStackTrace();
+            } catch (NullPointerException e) {
+                e.printStackTrace();
             }
 
             Log.e(TAG, "Response from url: " + solution);
