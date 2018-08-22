@@ -114,21 +114,6 @@ public class GetProblemsFragment extends Fragment {
                 InputStream in = conn.getInputStream();
                 if (conn.getResponseCode() == 200)
                     br = new BufferedReader(new InputStreamReader(in));
-             // If offline, get BufferedReader from assets instead
-            } catch (Exception e) {
-                try {
-                    InputStream is = getContext().getAssets().open("index.csv");
-                    InputStreamReader isr = new InputStreamReader(is);
-                    br = new BufferedReader(isr);
-                } catch (IOException ioe) {
-                    ioe.printStackTrace();
-                }
-            } finally {
-                    if(conn != null)
-                        conn.disconnect();
-            }
-
-            if (br != null) {
                 String inputLine;
                 try {
                     while ((inputLine = br.readLine()) != null) {
@@ -151,7 +136,44 @@ public class GetProblemsFragment extends Fragment {
                 } catch (IOException ioe) {
                     ioe.printStackTrace();
                 }
+
+                // If offline, get BufferedReader from assets instead
+            } catch (Exception e) {
+                try {
+                    InputStream is = getContext().getAssets().open("index.csv");
+                    InputStreamReader isr = new InputStreamReader(is);
+                    br = new BufferedReader(isr);
+                    String inputLine;
+                    try {
+                        while ((inputLine = br.readLine()) != null) {
+                            String[] indexString = inputLine.split(",");
+
+                            // Temp hash map for single problem
+                            HashMap<String, String> problem = new HashMap<>();
+
+                            // Adding data to HashMap key => value
+                            problem.put("question_nb", indexString[0]);
+                            problem.put("difficulty", indexString[1]);
+                            problem.put("name", indexString[2]);
+                            problem.put("download_url", indexString[3]);
+                            problem.put("icon",
+                                    Integer.toString(difficultyIcons[Integer.parseInt(indexString[1]) - 1]));
+
+                            // Adding problem to problem list
+                            allProblemsList.add(problem);
+                        }
+                    } catch (IOException ioe) {
+                        ioe.printStackTrace();
+                    }
+
+                } catch (IOException ioe) {
+                    ioe.printStackTrace();
+                }
+            } finally {
+                    if(conn != null)
+                        conn.disconnect();
             }
+
             filteredProblemList = allProblemsList;
             return allProblemsList;
         }
