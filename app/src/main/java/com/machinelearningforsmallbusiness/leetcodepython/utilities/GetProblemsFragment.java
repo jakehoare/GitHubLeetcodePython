@@ -9,10 +9,12 @@ import android.util.Log;
 import com.machinelearningforsmallbusiness.leetcodepython.R;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -102,16 +104,33 @@ public class GetProblemsFragment extends Fragment {
                     R.drawable.hard_icon
             };
 
-            // Get solutions from GitHub index.csv file
             HttpURLConnection conn = null;
+            BufferedReader br = null;
+
+            // Try to get BufferedReader from GitHub for index.csv file
             try {
                 URL url = new URL(GITHUB_INDEX_URL);
                 conn = (HttpURLConnection) url.openConnection();
                 InputStream in = conn.getInputStream();
-                if(conn.getResponseCode() == 200)
-                {
-                    BufferedReader br = new BufferedReader(new InputStreamReader(in));
-                    String inputLine;
+                if (conn.getResponseCode() == 200)
+                    br = new BufferedReader(new InputStreamReader(in));
+             // If offline, get BufferedReader from assets instead
+            } catch (Exception e) {
+                try {
+                    InputStream is = getContext().getAssets().open("index.csv");
+                    InputStreamReader isr = new InputStreamReader(is);
+                    br = new BufferedReader(isr);
+                } catch (IOException ioe) {
+                    ioe.printStackTrace();
+                }
+            } finally {
+                    if(conn != null)
+                        conn.disconnect();
+            }
+
+            if (br != null) {
+                String inputLine;
+                try {
                     while ((inputLine = br.readLine()) != null) {
                         String[] indexString = inputLine.split(",");
 
@@ -129,15 +148,10 @@ public class GetProblemsFragment extends Fragment {
                         // Adding problem to problem list
                         allProblemsList.add(problem);
                     }
+                } catch (IOException ioe) {
+                    ioe.printStackTrace();
                 }
-
-            } catch (Exception e){
-                Log.e("Error", e.toString());
-            } finally {
-                if(conn != null)
-                    conn.disconnect();
             }
-
             filteredProblemList = allProblemsList;
             return allProblemsList;
         }

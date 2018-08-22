@@ -25,8 +25,8 @@
     <string name="forward_source"># From Leetcode Python android app\n</string>
     <string name="search_query_placeholder">Enter a query, then click Search</string>
     <string name="difficulty_icon">Difficulty icon</string>
-    <string name="toast_downloading">Problem list is downloading</string>
-    <string name="toast_downloading_solution">Solution is downloading</string>
+    <string name="toast_downloading">Problem list is loading</string>
+    <string name="toast_downloading_solution">Solution is loading</string>
     <string name="toast_empty">Problem list is empty. Please remove the search</string>
     <string name="general_feedback">Feedback on Leetcode Python app</string>
     <string name="not_downloaded">Please wait for problem list to download</string>

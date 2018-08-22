@@ -18,7 +18,10 @@ import com.pddstudio.highlightjs.HighlightJsView;
 import com.pddstudio.highlightjs.models.Language;
 import com.pddstudio.highlightjs.models.Theme;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.net.URL;
 
 public class DisplayCodeActivity extends AppCompatActivity {
@@ -132,7 +135,26 @@ public class DisplayCodeActivity extends AppCompatActivity {
             try {
                 solution = NetworkUtils.getResponseFromHttpUrl(params[0]);
             } catch (IOException e) {
-                e.printStackTrace();
+                StringBuilder codeFile = new StringBuilder();
+                // Build a string with the text of the file
+                try {
+                    String urlString = params[0].toString();
+                    int index = urlString.lastIndexOf('/');
+                    InputStream is = getAssets().open(urlString.substring(index + 1));
+                    InputStreamReader isr = new InputStreamReader(is);
+                    BufferedReader br = new BufferedReader(isr);
+                    String line;
+
+                    while ((line = br.readLine()) != null) {
+                        codeFile.append(line);
+                        codeFile.append('\n');
+                    }
+                    br.close();
+                }
+                catch (IOException ioe) {
+                    throw new RuntimeException(ioe);
+                }
+                solution = codeFile.toString();
             } catch (NullPointerException e) {
                 e.printStackTrace();
             }
