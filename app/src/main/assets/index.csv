@@ -775,6 +775,7 @@
 826,2,826 Most Profit Assigning Work,https://raw.githubusercontent.com/jakehoare/leetcode/master/826_Most_Profit_Assigning_Work.py
 827,3,827 Making A Large Island,https://raw.githubusercontent.com/jakehoare/leetcode/master/827_Making_A_Large_Island.py
 828,3,828 Unique Letter String,https://raw.githubusercontent.com/jakehoare/leetcode/master/828_Unique_Letter_String.py
+829,2,829 Consecutive Numbers Sum,https://raw.githubusercontent.com/jakehoare/leetcode/master/829_Consecutive_Numbers_Sum.py
 830,1,830 Positions of Large Groups,https://raw.githubusercontent.com/jakehoare/leetcode/master/830_Positions_of_Large_Groups.py
 831,2,831 Masking Personal Information,https://raw.githubusercontent.com/jakehoare/leetcode/master/831_Masking_Personal_Information.py
 832,1,832 Flipping an Image,https://raw.githubusercontent.com/jakehoare/leetcode/master/832_Flipping_an_Image.py
@@ -794,3 +795,32 @@
 846,2,846 Hand of Straights,https://raw.githubusercontent.com/jakehoare/leetcode/master/846_Hand_of_Straights.py
 847,3,847 Shortest Path Visiting All Nodes,https://raw.githubusercontent.com/jakehoare/leetcode/master/847_Shortest_Path_Visiting_All_Nodes.py
 848,2,848 Shifting Letters,https://raw.githubusercontent.com/jakehoare/leetcode/master/848_Shifting_Letters.py
+849,1,849 Maximize Distance to Closest Person,https://raw.githubusercontent.com/jakehoare/leetcode/master/849_Maximize_Distance_to_Closest_Person.py
+850,3,850 Rectangle Area II,https://raw.githubusercontent.com/jakehoare/leetcode/master/850_Rectangle_Area_II.py
+851,2,851 Loud and Rich,https://raw.githubusercontent.com/jakehoare/leetcode/master/851_Loud_and_Rich.py
+852,1,852 Peak Index in a Mountain Array,https://raw.githubusercontent.com/jakehoare/leetcode/master/852_Peak_Index_in_a_Mountain_Array.py
+853,2,853 Car Fleet,https://raw.githubusercontent.com/jakehoare/leetcode/master/853_Car_Fleet.py
+854,3,854 K-Similar Strings,https://raw.githubusercontent.com/jakehoare/leetcode/master/854_K-Similar_Strings.py
+855,2,855 Exam Room,https://raw.githubusercontent.com/jakehoare/leetcode/master/855_Exam_Room.py
+856,2,856 Score of Parentheses,https://raw.githubusercontent.com/jakehoare/leetcode/master/856_Score_of_Parentheses.py
+857,3,857 Minimum Cost to Hire K Workers,https://raw.githubusercontent.com/jakehoare/leetcode/master/857_Minimum_Cost_to_Hire_K_Workers.py
+858,2,858 Mirror Reflection,https://raw.githubusercontent.com/jakehoare/leetcode/master/858_Mirror_Reflection.py
+859,1,859 Buddy Strings,https://raw.githubusercontent.com/jakehoare/leetcode/master/859_Buddy_Strings.py
+860,1,860 Lemonade Change,https://raw.githubusercontent.com/jakehoare/leetcode/master/860_Lemonade_Change.py
+861,2,861 Score After Flipping Matrix,https://raw.githubusercontent.com/jakehoare/leetcode/master/861_Score_After_Flipping_Matrix.py
+862,3,862 Shortest Subarray with Sum at Least K,https://raw.githubusercontent.com/jakehoare/leetcode/master/862_Shortest_Subarray_with_Sum_at_Least_K.py
+863,2,863 All Nodes Distance K in Binary Tree,https://raw.githubusercontent.com/jakehoare/leetcode/master/863_All_Nodes_Distance_K_in_Binary_Tree.py
+864,3,864 Shortest Path to Get All Keys,https://raw.githubusercontent.com/jakehoare/leetcode/master/864_Shortest_Path_to_Get_All_Keys.py
+865,2,865 Smallest Subtree with all the Deepest Nodes,https://raw.githubusercontent.com/jakehoare/leetcode/master/865_Smallest_Subtree_with_all_the_Deepest_Nodes.py
+866,2,866 Prime Palindrome,https://raw.githubusercontent.com/jakehoare/leetcode/master/866_Prime_Palindrome.py
+867,1,867 Transpose Matrix,https://raw.githubusercontent.com/jakehoare/leetcode/master/867_Transpose_Matrix.py
+868,1,868 Binary Gap,https://raw.githubusercontent.com/jakehoare/leetcode/master/868_Binary_Gap.py
+869,2,869 Reordered Power of 2,https://raw.githubusercontent.com/jakehoare/leetcode/master/869_Reordered_Power_of_2.py
+870,2,870 Advantage Shuffle,https://raw.githubusercontent.com/jakehoare/leetcode/master/870_Advantage_Shuffle.py
+871,3,871 Minimum Number of Refueling Stops,https://raw.githubusercontent.com/jakehoare/leetcode/master/871_Minimum_Number_of_Refueling_Stops.py
+872,1,872 Leaf-Similar Trees,https://raw.githubusercontent.com/jakehoare/leetcode/master/872_Leaf-Similar_Trees.py
+873,2,873 Length of Longest Fibonacci Subsequence,https://raw.githubusercontent.com/jakehoare/leetcode/master/873_Length_of_Longest_Fibonacci_Subsequence.py
+874,1,874 Walking Robot Simulation,https://raw.githubusercontent.com/jakehoare/leetcode/master/874_Walking_Robot_Simulation.py
+875,2,875 Koko Eating Bananas,https://raw.githubusercontent.com/jakehoare/leetcode/master/875_Koko_Eating_Bananas.py
+876,1,876 Middle of the Linked List,https://raw.githubusercontent.com/jakehoare/leetcode/master/876_Middle_of_the_Linked_List.py
+877,2,877 Stone Game,https://raw.githubusercontent.com/jakehoare/leetcode/master/877_Stone_Game.py

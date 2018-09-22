@@ -31,4 +31,5 @@
     <string name="general_feedback">Feedback on Leetcode Python app</string>
     <string name="not_downloaded">Please wait for problem list to download</string>
     <string name="no_email">Cannot open email application. Please email jake@machinelearningforsmallbusiness.com</string>
+    <string name="solution_offline"># This is one of the latest solutions\n# and is currently only available when online.</string>
 </resources>

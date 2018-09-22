@@ -14,7 +14,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -23,9 +22,8 @@ public class GetProblemsFragment extends Fragment {
 
     final static String GITHUB_INDEX_URL = "https://raw.githubusercontent.com/jakehoare/leetcode/master/index.csv";
     private String TAG = GetProblemsFragment.class.getSimpleName();
-    private ArrayList<HashMap<String, String>> allProblemsList;
+    private ArrayList<HashMap<String, String>> allProblemsList = new ArrayList<>();
     private ArrayList<HashMap<String, String>> filteredProblemList;
-    private HashMap<String, String> difficultyMapping;
 
     /**
      * Callback interface through which the fragment will report the
@@ -87,6 +85,8 @@ public class GetProblemsFragment extends Fragment {
 
     /********* ASYNCTASK *********/
     private class GetProblems extends AsyncTask<Void, Void, ArrayList<HashMap<String, String>>> {
+
+
         @Override
         protected void onPreExecute() {
             if (mCallbacks != null)
@@ -94,47 +94,52 @@ public class GetProblemsFragment extends Fragment {
             super.onPreExecute();
         }
 
-        @Override
-        protected ArrayList<HashMap<String, String>> doInBackground(Void... params) {
-
-            allProblemsList = new ArrayList<>();
+        // Create allProblemsList
+        private void mapProblems(BufferedReader br) {
             int[] difficultyIcons = new int[]{
                     R.drawable.easy_icon,
                     R.drawable.medium_icon,
                     R.drawable.hard_icon
             };
 
+            String inputLine;
+            try {
+                while ((inputLine = br.readLine()) != null) {
+                    String[] indexString = inputLine.split(",");
+
+                    // Temp hash map for single problem
+                    HashMap<String, String> problem = new HashMap<>();
+
+                    // Adding data to HashMap key => value
+                    problem.put("question_nb", indexString[0]);
+                    problem.put("difficulty", indexString[1]);
+                    problem.put("name", indexString[2]);
+                    problem.put("download_url", indexString[3]);
+                    problem.put("icon",
+                            Integer.toString(difficultyIcons[Integer.parseInt(indexString[1]) - 1]));
+
+                    // Adding problem to problem list
+                    allProblemsList.add(problem);
+                }
+            } catch (IOException ioe) {
+                ioe.printStackTrace();
+            }
+        }
+
+        @Override
+        protected ArrayList<HashMap<String, String>> doInBackground(Void... params) {
+
             HttpURLConnection conn = null;
-            BufferedReader br = null;
+            BufferedReader br;
 
             // Try to get BufferedReader from GitHub for index.csv file
             try {
                 URL url = new URL(GITHUB_INDEX_URL);
                 conn = (HttpURLConnection) url.openConnection();
                 InputStream in = conn.getInputStream();
-                if (conn.getResponseCode() == 200)
+                if (conn.getResponseCode() == 200) {
                     br = new BufferedReader(new InputStreamReader(in));
-                String inputLine;
-                try {
-                    while ((inputLine = br.readLine()) != null) {
-                        String[] indexString = inputLine.split(",");
-
-                        // Temp hash map for single problem
-                        HashMap<String, String> problem = new HashMap<>();
-
-                        // Adding data to HashMap key => value
-                        problem.put("question_nb", indexString[0]);
-                        problem.put("difficulty", indexString[1]);
-                        problem.put("name", indexString[2]);
-                        problem.put("download_url", indexString[3]);
-                        problem.put("icon",
-                                Integer.toString(difficultyIcons[Integer.parseInt(indexString[1]) - 1]));
-
-                        // Adding problem to problem list
-                        allProblemsList.add(problem);
-                    }
-                } catch (IOException ioe) {
-                    ioe.printStackTrace();
+                    mapProblems(br);
                 }
 
                 // If offline, get BufferedReader from assets instead
@@ -143,29 +148,7 @@ public class GetProblemsFragment extends Fragment {
                     InputStream is = getContext().getAssets().open("index.csv");
                     InputStreamReader isr = new InputStreamReader(is);
                     br = new BufferedReader(isr);
-                    String inputLine;
-                    try {
-                        while ((inputLine = br.readLine()) != null) {
-                            String[] indexString = inputLine.split(",");
-
-                            // Temp hash map for single problem
-                            HashMap<String, String> problem = new HashMap<>();
-
-                            // Adding data to HashMap key => value
-                            problem.put("question_nb", indexString[0]);
-                            problem.put("difficulty", indexString[1]);
-                            problem.put("name", indexString[2]);
-                            problem.put("download_url", indexString[3]);
-                            problem.put("icon",
-                                    Integer.toString(difficultyIcons[Integer.parseInt(indexString[1]) - 1]));
-
-                            // Adding problem to problem list
-                            allProblemsList.add(problem);
-                        }
-                    } catch (IOException ioe) {
-                        ioe.printStackTrace();
-                    }
-
+                    mapProblems(br);
                 } catch (IOException ioe) {
                     ioe.printStackTrace();
                 }

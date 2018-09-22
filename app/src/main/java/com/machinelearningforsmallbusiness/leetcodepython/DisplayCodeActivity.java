@@ -19,6 +19,7 @@ import com.pddstudio.highlightjs.models.Language;
 import com.pddstudio.highlightjs.models.Theme;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -150,6 +151,11 @@ public class DisplayCodeActivity extends AppCompatActivity {
                         codeFile.append('\n');
                     }
                     br.close();
+                }
+                // Problem list loaded online contains solutions not available offline
+                catch (FileNotFoundException fnfe) {
+                    solution = getApplicationContext().getString(R.string.solution_offline);
+                    return null;
                 }
                 catch (IOException ioe) {
                     throw new RuntimeException(ioe);
