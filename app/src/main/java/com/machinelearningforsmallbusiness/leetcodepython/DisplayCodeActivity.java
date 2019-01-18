@@ -38,7 +38,7 @@ public class DisplayCodeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_displaycode);
 
         mDisplayText = findViewById(R.id.hjsv_code);
-        TextView mDisplayTitle = findViewById(R.id.tv_title);
+        TextView mDisplayTitle = findViewById(R.id.tv_code_title);
         ImageView mProblemDifficulty = findViewById(R.id.iv_problem_icon);
 
         Intent intentThatStartedThisActivity = getIntent();
@@ -69,7 +69,7 @@ public class DisplayCodeActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int itemThatWasClickedId = item.getItemId();
 
-        if (itemThatWasClickedId == R.id.action_feedback) {
+        if (itemThatWasClickedId == R.id.action_feedback_problem) {
             sendFeedback();
             return true;
         }

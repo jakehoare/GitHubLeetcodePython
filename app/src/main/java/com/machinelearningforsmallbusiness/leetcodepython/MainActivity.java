@@ -32,6 +32,7 @@ import android.widget.Toast;
 
 import com.machinelearningforsmallbusiness.leetcodepython.utilities.GetProblemsFragment;
 import com.machinelearningforsmallbusiness.leetcodepython.utilities.ProblemAdapter;
+import com.machinelearningforsmallbusiness.leetcodepython.utilities.ShowHelp;
 import com.machinelearningforsmallbusiness.leetcodepython.utilities.ShowSolution;
 
 import java.util.ArrayList;
@@ -110,6 +111,10 @@ public class MainActivity extends AppCompatActivity implements GetProblemsFragme
 
         } else if (itemThatWasClickedId == R.id.action_feedback_main) {
             sendFeedback();
+            return true;
+
+        } else if (itemThatWasClickedId == R.id.action_help) {
+            ShowHelp.showHelp(MainActivity.this);
             return true;
         }
 

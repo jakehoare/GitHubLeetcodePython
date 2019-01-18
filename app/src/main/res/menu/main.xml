@@ -23,6 +23,12 @@
         android:title="@string/search"/>
 
     <item
+        android:id="@+id/action_help"
+        android:orderInCategory="1"
+        app:showAsAction="ifRoom"
+        android:title="@string/help"/>
+
+    <item
         android:id="@+id/action_random"
         android:orderInCategory="1"
         app:showAsAction="ifRoom"

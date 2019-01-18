@@ -30,7 +30,7 @@ class ProblemHolder extends RecyclerView.ViewHolder implements View.OnClickListe
         this.context = context;
 
         this.mDifficultyIcon = itemView.findViewById(R.id.iv_difficulty_icon);
-        this.mProblemName = itemView.findViewById(R.id.tv_name);
+        this.mProblemName = itemView.findViewById(R.id.tv_item_name);
 
         itemView.setOnClickListener(this);
     }

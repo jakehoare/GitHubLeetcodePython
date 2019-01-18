@@ -1,0 +1,35 @@
+If you are online, the app contains all the problems that I have solved.
+This is all of the algorithm problems on Leetcode (perhaps apart from the newest few).
+The list of problems on Leetcode is continually increasing and I aim to keep the app updated.
+
+If you are offline, the list of problems is updated when a new version of this app is released. Updates occur about every few months.
+
+Solutions include:
+    - problem description from Leetcode
+    - explanation of the solution
+    - time and space complexity
+    - commented Python code
+
+I aim to have the fastest solutions in terms of big-O time complexity.
+However, it is important that the code can easily be understood. For that reason, solutions are usually not the most concise code possible.
+
+**** MENU ITEMS ****
+
+*** SEARCH ***
+Click on "Enter a query, then click Search" to enter a search term.
+A search term can be part of a problem name (e.g. "array") or a problem number.
+Difficulty levels of "easy", "medium" or "hard" can also be used as search terms.
+Searches are case-insensitive.
+To revert to the full list, delete the term and click the search button.
+
+*** RANDOM ***
+Displays a random problem from those currently shown on the home screen.
+If there is a search term, this is a random problem from amongst the search results.
+
+*** FEEDBACK ***
+This opens your email application and allows you to give me feedback.
+You can give feedback on an individual problem, such as a correction or clarification.
+I am also happy to receive feedback on the overall application.
+
+*** FORWARD ***
+This opens your email application and allows you to forward the problem solution to an email address.

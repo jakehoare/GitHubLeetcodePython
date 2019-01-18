@@ -33,6 +33,9 @@
         <activity android:name="com.machinelearningforsmallbusiness.leetcodepython.DisplayCodeActivity">
         </activity>
 
+        <activity android:name="com.machinelearningforsmallbusiness.leetcodepython.DisplayHelpActivity">
+        </activity>
+
     </application>
 
 </manifest>
