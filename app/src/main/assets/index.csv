@@ -438,7 +438,7 @@
 455,1,455 Assign Cookies,https://raw.githubusercontent.com/jakehoare/leetcode/master/455_Assign_Cookies.py
 456,2,456 132 Pattern,https://raw.githubusercontent.com/jakehoare/leetcode/master/456_132_Pattern.py
 457,2,457 Circular Array Loop,https://raw.githubusercontent.com/jakehoare/leetcode/master/457_Circular_Array_Loop.py
-458,1,458 Poor Pigs,https://raw.githubusercontent.com/jakehoare/leetcode/master/458_Poor_Pigs.py
+458,3,458 Poor Pigs,https://raw.githubusercontent.com/jakehoare/leetcode/master/458_Poor_Pigs.py
 459,1,459 Repeated Substring Pattern,https://raw.githubusercontent.com/jakehoare/leetcode/master/459_Repeated_Substring_Pattern.py
 460,3,460 LFU Cache,https://raw.githubusercontent.com/jakehoare/leetcode/master/460_LFU_Cache.py
 461,1,461 Hamming Distance,https://raw.githubusercontent.com/jakehoare/leetcode/master/461_Hamming_Distance.py
@@ -459,7 +459,7 @@
 476,1,476 Number Complement,https://raw.githubusercontent.com/jakehoare/leetcode/master/476_Number_Complement.py
 477,2,477 Total Hamming Diatance,https://raw.githubusercontent.com/jakehoare/leetcode/master/477_Total_Hamming_Diatance.py
 478,2,478 Generate Random Point in a Circle,https://raw.githubusercontent.com/jakehoare/leetcode/master/478_Generate_Random_Point_in_a_Circle.py
-479,1,479 Largest Palindrome Product,https://raw.githubusercontent.com/jakehoare/leetcode/master/479_Largest_Palindrome_Product.py
+479,3,479 Largest Palindrome Product,https://raw.githubusercontent.com/jakehoare/leetcode/master/479_Largest_Palindrome_Product.py
 480,3,480 Sliding Window Median,https://raw.githubusercontent.com/jakehoare/leetcode/master/480_Sliding_Window_Median.py
 481,2,481 Magical String,https://raw.githubusercontent.com/jakehoare/leetcode/master/481_Magical_String.py
 482,1,482 License Key Formatting,https://raw.githubusercontent.com/jakehoare/leetcode/master/482_License_Key_Formatting.py
@@ -469,6 +469,7 @@
 486,2,486 Predict the Winner,https://raw.githubusercontent.com/jakehoare/leetcode/master/486_Predict_the_Winner.py
 487,2,487 Max Consecutive Ones II,https://raw.githubusercontent.com/jakehoare/leetcode/master/487_Max_Consecutive_Ones_II.py
 488,3,488 Zuma Game,https://raw.githubusercontent.com/jakehoare/leetcode/master/488_Zuma_Game.py
+489,3,489 Robot Room Cleaner,https://raw.githubusercontent.com/jakehoare/leetcode/master/489_Robot_Room_Cleaner.py
 490,2,490 The Maze,https://raw.githubusercontent.com/jakehoare/leetcode/master/490_The_Maze.py
 491,2,491 Increasing Subsequences,https://raw.githubusercontent.com/jakehoare/leetcode/master/491_Increasing_Subsequences.py
 492,1,492 Construct the Rectangle,https://raw.githubusercontent.com/jakehoare/leetcode/master/492_Construct_the_Rectangle.py
@@ -489,6 +490,7 @@
 507,1,507 Perfect Number,https://raw.githubusercontent.com/jakehoare/leetcode/master/507_Perfect_Number.py
 508,2,508 Most Frequent Subtree Sum,https://raw.githubusercontent.com/jakehoare/leetcode/master/508_Most_Frequent_Subtree_Sum.py
 509,1,509 Fibonacci Number,https://raw.githubusercontent.com/jakehoare/leetcode/master/509_Fibonacci_Number.py
+510,2,510 Inorder Successor in BST II,https://raw.githubusercontent.com/jakehoare/leetcode/master/510_Inorder_Successor_in_BST_II.py
 513,2,513 Find Bottom Left Tree Value,https://raw.githubusercontent.com/jakehoare/leetcode/master/513_Find_Bottom_Left_Tree_Value.py
 514,3,514 Freedom Trail,https://raw.githubusercontent.com/jakehoare/leetcode/master/514_Freedom_Trail.py
 515,2,515 Find Largest Value in Each Tree Row,https://raw.githubusercontent.com/jakehoare/leetcode/master/515_Find_Largest_Value_in_Each_Tree_Row.py
@@ -688,7 +690,7 @@
 740,2,740 Delete and Earn,https://raw.githubusercontent.com/jakehoare/leetcode/master/740_Delete_and_Earn.py
 741,3,741 Cherry Pickup,https://raw.githubusercontent.com/jakehoare/leetcode/master/741_Cherry_Pickup.py
 742,2,742 Closest Leaf in a Binary Tree,https://raw.githubusercontent.com/jakehoare/leetcode/master/742_Closest_Leaf_in_a_Binary_Tree.py
-743,1,743 Network Delay Time,https://raw.githubusercontent.com/jakehoare/leetcode/master/743_Network_Delay_Time.py
+743,2,743 Network Delay Time,https://raw.githubusercontent.com/jakehoare/leetcode/master/743_Network_Delay_Time.py
 744,1,744 Find Smallest Letter Greater Than Target,https://raw.githubusercontent.com/jakehoare/leetcode/master/744_Find_Smallest_Letter_Greater_Than_Target.py
 745,3,745 Prefix and Suffix Search,https://raw.githubusercontent.com/jakehoare/leetcode/master/745_Prefix_and_Suffix_Search.py
 746,1,746 Min Cost Climbing Stairs,https://raw.githubusercontent.com/jakehoare/leetcode/master/746_Min_Cost_Climbing_Stairs.py
@@ -908,5 +910,51 @@
 961,1,961 N-Repeated Element in Size 2N Array,https://raw.githubusercontent.com/jakehoare/leetcode/master/961_N-Repeated_Element_in_Size_2N_Array.py
 962,2,962 Maximum Width Ramp,https://raw.githubusercontent.com/jakehoare/leetcode/master/962_Maximum_Width_Ramp.py
 963,2,963 Minimum Area Rectangle II,https://raw.githubusercontent.com/jakehoare/leetcode/master/963_Minimum_Area_Rectangle_II.py
+964,3,964 Least Operators to Express Number,https://raw.githubusercontent.com/jakehoare/leetcode/master/964_Least_Operators_to_Express_Number.py
 965,1,965 Univalued Binary Tree,https://raw.githubusercontent.com/jakehoare/leetcode/master/965_Univalued_Binary_Tree.py
 966,2,966 Vowel Spellchecker,https://raw.githubusercontent.com/jakehoare/leetcode/master/966_Vowel_Spellchecker.py
+967,2,967 Numbers With Same Consecutive Differences,https://raw.githubusercontent.com/jakehoare/leetcode/master/967_Numbers_With_Same_Consecutive_Differences.py
+968,3,968 Binary Tree Cameras,https://raw.githubusercontent.com/jakehoare/leetcode/master/968_Binary_Tree_Cameras.py
+969,2,969 Pancake Sorting,https://raw.githubusercontent.com/jakehoare/leetcode/master/969_Pancake_Sorting.py
+970,1,970 Powerful Integers,https://raw.githubusercontent.com/jakehoare/leetcode/master/970_Powerful_Integers.py
+971,2,971 Flip Binary Tree To Match Preorder Traversal,https://raw.githubusercontent.com/jakehoare/leetcode/master/971_Flip_Binary_Tree_To_Match_Preorder_Traversal.py
+972,3,972 Equal Rational Numbers,https://raw.githubusercontent.com/jakehoare/leetcode/master/972_Equal_Rational_Numbers.py
+973,2,973 K Closest Points to Origin,https://raw.githubusercontent.com/jakehoare/leetcode/master/973_K_Closest_Points_to_Origin.py
+974,2,974 Subarray Sums Divisible by K,https://raw.githubusercontent.com/jakehoare/leetcode/master/974_Subarray_Sums_Divisible_by_K.py
+975,3,975 Odd Even Jump,https://raw.githubusercontent.com/jakehoare/leetcode/master/975_Odd_Even_Jump.py
+976,1,976 Largest Perimeter Triangle,https://raw.githubusercontent.com/jakehoare/leetcode/master/976_Largest_Perimeter_Triangle.py
+977,1,977 Squares of a Sorted Array,https://raw.githubusercontent.com/jakehoare/leetcode/master/977_Squares_of_a_Sorted_Array.py
+978,2,978 Longest Turbulent Subarray,https://raw.githubusercontent.com/jakehoare/leetcode/master/978_Longest_Turbulent_Subarray.py
+979,2,979 Distribute Coins in Binary Tree,https://raw.githubusercontent.com/jakehoare/leetcode/master/979_Distribute_Coins_in_Binary_Tree.py
+980,3,980 Unique Paths III,https://raw.githubusercontent.com/jakehoare/leetcode/master/980_Unique_Paths_III.py
+981,2,981 Time Based Key-Value Store,https://raw.githubusercontent.com/jakehoare/leetcode/master/981_Time_Based_Key-Value_Store.py
+982,3,982 Triples with Bitwise AND Equal To Zero,https://raw.githubusercontent.com/jakehoare/leetcode/master/982_Triples_with_Bitwise_AND_Equal_To_Zero.py
+983,2,983 Minimum Cost For Tickets,https://raw.githubusercontent.com/jakehoare/leetcode/master/983_Minimum_Cost_For_Tickets.py
+984,2,984 String Without AAA or BBB,https://raw.githubusercontent.com/jakehoare/leetcode/master/984_String_Without_AAA_or_BBB.py
+985,1,985 Sum of Even Numbers After Queries,https://raw.githubusercontent.com/jakehoare/leetcode/master/985_Sum_of_Even_Numbers_After_Queries.py
+986,2,986 Interval List Intersections,https://raw.githubusercontent.com/jakehoare/leetcode/master/986_Interval_List_Intersections.py
+987,2,987 Vertical Order Traversal of a Binary Tree,https://raw.githubusercontent.com/jakehoare/leetcode/master/987_Vertical_Order_Traversal_of_a_Binary_Tree.py
+988,2,988 Smallest String Starting From Leaf,https://raw.githubusercontent.com/jakehoare/leetcode/master/988_Smallest_String_Starting_From_Leaf.py
+989,1,989 Add to Array-Form of Integer,https://raw.githubusercontent.com/jakehoare/leetcode/master/989_Add_to_Array-Form_of_Integer.py
+990,2,990 Satisfiability of Equality Equations,https://raw.githubusercontent.com/jakehoare/leetcode/master/990_Satisfiability_of_Equality_Equations.py
+991,2,991 Broken Calculator,https://raw.githubusercontent.com/jakehoare/leetcode/master/991_Broken_Calculator.py
+992,3,992 Subarrays with K Different Integers,https://raw.githubusercontent.com/jakehoare/leetcode/master/992_Subarrays_with_K_Different_Integers.py
+993,1,993 Cousins in Binary Tree,https://raw.githubusercontent.com/jakehoare/leetcode/master/993_Cousins_in_Binary_Tree.py
+994,1,994 Rotting Oranges,https://raw.githubusercontent.com/jakehoare/leetcode/master/994_Rotting_Oranges.py
+995,3,995 Minimum Number of K Consecutive Bit Flips,https://raw.githubusercontent.com/jakehoare/leetcode/master/995_Minimum_Number_of_K_Consecutive_Bit_Flips.py
+996,3,996 Number of Squareful Arrays,https://raw.githubusercontent.com/jakehoare/leetcode/master/996_Number_of_Squareful_Arrays.py
+997,1,997 Find the Town Judge,https://raw.githubusercontent.com/jakehoare/leetcode/master/997_Find_the_Town_Judge.py
+998,2,998 Maximum Binary Tree II,https://raw.githubusercontent.com/jakehoare/leetcode/master/998_Maximum_Binary_Tree_II.py
+999,1,999 Available Captures for Rook,https://raw.githubusercontent.com/jakehoare/leetcode/master/999_Available_Captures_for_Rook.py
+1000,3,1000 Minimum Cost to Merge Stones,https://raw.githubusercontent.com/jakehoare/leetcode/master/1000_Minimum_Cost_to_Merge_Stones.py
+1001,3,1001 Grid Illumination,https://raw.githubusercontent.com/jakehoare/leetcode/master/1001_Grid_Illumination.py
+1002,1,1002 Find Common Characters,https://raw.githubusercontent.com/jakehoare/leetcode/master/1002_Find_Common_Characters.py
+1003,2,1003 Check If Word Is Valid After Substitutions,https://raw.githubusercontent.com/jakehoare/leetcode/master/1003_Check_If_Word_Is_Valid_After_Substitutions.py
+1004,2,1004 Max Consecutive Ones III,https://raw.githubusercontent.com/jakehoare/leetcode/master/1004_Max_Consecutive_Ones_III.py
+1005,1,1005 Maximize Sum Of Array After K Negations,https://raw.githubusercontent.com/jakehoare/leetcode/master/1005_Maximize_Sum_Of_Array_After_K_Negations.py
+1007,2,1007 Minimum Domino Rotations For Equal Row,https://raw.githubusercontent.com/jakehoare/leetcode/master/1007_Minimum_Domino_Rotations_For_Equal_Row.py
+1008,2,1008 Construct Binary Search Tree from Preorder Traversal,https://raw.githubusercontent.com/jakehoare/leetcode/master/1008_Construct_Binary_Search_Tree_from_Preorder_Traversal.py
+1012,1,1012 Complement of Base 10 Integer,https://raw.githubusercontent.com/jakehoare/leetcode/master/1012_Complement_of_Base_10_Integer.py
+1013,1,1013 Pairs of Songs With Total Durations Divisible by 60,https://raw.githubusercontent.com/jakehoare/leetcode/master/1013_Pairs_of_Songs_With_Total_Durations_Divisible_by_60.py
+1014,2,1014 Capacity To Ship Packages Within D Days,https://raw.githubusercontent.com/jakehoare/leetcode/master/1014_Capacity_To_Ship_Packages_Within_D_Days.py
+1020,1,1020 Partition Array Into Three Parts With Equal Sum,https://raw.githubusercontent.com/jakehoare/leetcode/master/1020_Partition_Array_Into_Three_Parts_With_Equal_Sum.py
