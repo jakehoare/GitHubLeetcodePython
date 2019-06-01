@@ -7,8 +7,8 @@ android {
         applicationId "com.machinelearningforsmallbusiness.leetcodepython"
         minSdkVersion 15
         targetSdkVersion 28
-        versionCode 20
-        versionName "1.19"
+        versionCode 22
+        versionName "1.21"
     }
     buildTypes {
         release {

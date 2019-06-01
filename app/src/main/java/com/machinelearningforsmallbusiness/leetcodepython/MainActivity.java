@@ -23,11 +23,14 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.machinelearningforsmallbusiness.leetcodepython.utilities.GetProblemsFragment;
@@ -58,6 +61,16 @@ public class MainActivity extends AppCompatActivity implements GetProblemsFragme
         setContentView(R.layout.activity_main);
 
         mSearchBoxEditText = findViewById(R.id.et_search_box);
+
+        mSearchBoxEditText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+                    findViewById(R.id.action_search).performClick();
+                    return true;
+                }
+                return false;
+            }
+        });
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         mProblemListView = findViewById(R.id.lv_problem_list);
