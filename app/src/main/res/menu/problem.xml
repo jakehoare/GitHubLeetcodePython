@@ -3,14 +3,21 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/action_forward"
+        android:id="@+id/action_hide_reveal"
         android:orderInCategory="1"
         app:showAsAction="ifRoom"
-        android:title="@string/forward"/>
+        android:title="@string/hide"/>
 
     <item
         android:id="@+id/action_feedback_problem"
         android:orderInCategory="1"
         app:showAsAction="ifRoom"
         android:title="@string/feedback"/>
+
+    <item
+        android:id="@+id/action_forward"
+        android:orderInCategory="1"
+        app:showAsAction="ifRoom"
+        android:title="@string/forward"/>
+
 </menu>

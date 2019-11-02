@@ -31,6 +31,9 @@ public class DisplayCodeActivity extends AppCompatActivity {
     private HighlightJsView mDisplayText;
     private String problemName;
     private String solution;
+    private String question;
+    private Menu menu;
+    private boolean solutionHidden = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,9 +61,11 @@ public class DisplayCodeActivity extends AppCompatActivity {
                     Toast.LENGTH_SHORT).show();
         } else {
             solution = savedInstanceState.getString("solution_text");
+            question = savedInstanceState.getString("question_text");
+            solutionHidden = savedInstanceState.getBoolean("is_hidden");
             mDisplayText.setTheme(Theme.GITHUB);
             mDisplayText.setHighlightLanguage(Language.PYTHON);
-            mDisplayText.setSource(solution);
+            mDisplayText.setSource(solutionHidden ? question : solution);
         }
     }
 
@@ -77,11 +82,15 @@ public class DisplayCodeActivity extends AppCompatActivity {
             forwardSolution();
             return true;
         }
+        if (itemThatWasClickedId == R.id.action_hide_reveal) {
+            hideOrRevealSolution();
+            return true;
+        }
 
         return super.onOptionsItemSelected(item);
     }
 
-    //Start a new activity for sending a feedback email
+    // Start a new activity for sending a feedback email
     private void sendFeedback() {
         Uri uri = Uri.parse(getString(R.string.mail_feedback_email));
         Intent mailIntent = new Intent(Intent.ACTION_SENDTO, uri);
@@ -94,7 +103,7 @@ public class DisplayCodeActivity extends AppCompatActivity {
         }
     }
 
-    //Start a new activity for forwarding the solution by email
+    // Start a new activity for forwarding the solution by email
     private void forwardSolution() {
         Uri uri = Uri.parse(getString(R.string.mail_blank));
         Intent mailIntent = new Intent(Intent.ACTION_SENDTO, uri);
@@ -108,17 +117,38 @@ public class DisplayCodeActivity extends AppCompatActivity {
         }
     }
 
+    // Change the displayed text and the label of the button
+    private void hideOrRevealSolution() {
+        mDisplayText.setSource(solutionHidden ? solution : question);
+        if (menu != null) {
+            MenuItem hideRevealMenuItem = menu.findItem(R.id.action_hide_reveal);
+            hideRevealMenuItem.setTitle(solutionHidden ? R.string.hide : R.string.reveal);
+        }
+        solutionHidden = !solutionHidden;
+    }
+
+    // Set the text of hide/reveal button.
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        MenuItem hideRevealMenuItem = menu.findItem(R.id.action_hide_reveal);
+        hideRevealMenuItem.setTitle(solutionHidden ? R.string.reveal : R.string.hide);
+        return super.onPrepareOptionsMenu(menu);
+    }
+
     // Add the menu
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.problem, menu);
+        this.menu = menu;
         return true;
     }
 
     @Override
     public void onSaveInstanceState(Bundle savedInstanceState) {
-        // Save the current solution
+        // Save the current state
         savedInstanceState.putString("solution_text", solution);
+        savedInstanceState.putString("question_text", question);
+        savedInstanceState.putBoolean("is_hidden", solutionHidden);
 
         // Call the superclass so it can save the view hierarchy state
         super.onSaveInstanceState(savedInstanceState);
@@ -203,6 +233,7 @@ public class DisplayCodeActivity extends AppCompatActivity {
                     lineStart = nextBreak + 1;
             }
             solution = sb.toString();
+            question = sb.substring(0, sb.indexOf("\n\n"));
 
             return null;
         }

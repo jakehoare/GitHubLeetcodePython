@@ -15,25 +15,27 @@
 -->
 <resources>
     <string name="app_name">Leetcode Python</string>
-    <string name="search">Search</string>
-    <string name="help">Help</string>
-    <string name="random">Random</string>
+    <string name="difficulty_icon">Difficulty icon</string>
     <string name="feedback">Feedback</string>
     <string name="forward">Forward</string>
-    <string name="mail_feedback_email">mailto:jake@machinelearningforsmallbusiness.com</string>
-    <string name="mail_blank">mailto:</string>
-    <string name="forward_subject">"Solution to Leetcode Problem "</string>
     <string name="forward_source"># From Leetcode Python android app\n</string>
+    <string name="forward_subject">"Solution to Leetcode Problem "</string>
+    <string name="general_feedback">Feedback on Leetcode Python app</string>
+    <string name="help">Help</string>
+    <string name="help_file">help_text.txt</string>
+    <string name="help_title">ABOUT LEETCODE PYTHON</string>
+    <string name="hide">Hide</string>
+    <string name="mail_blank">mailto:</string>
+    <string name="mail_feedback_email">mailto:jake@machinelearningforsmallbusiness.com</string>
+    <string name="no_email">Cannot open email application. Please email jake@machinelearningforsmallbusiness.com</string>
+    <string name="not_downloaded">Please wait for problem list to download</string>
+    <string name="random">Random</string>
+    <string name="reveal">Reveal</string>
+    <string name="search">Search</string>
     <string name="search_query_placeholder">Enter a query, then click Search</string>
-    <string name="difficulty_icon">Difficulty icon</string>
+    <string name="solution_offline"># This is one of the latest solutions\n# and is currently only available when online.</string>
     <string name="toast_downloading">Problem list is loading</string>
     <string name="toast_downloading_solution">Solution is loading</string>
     <string name="toast_empty">Problem list is empty. Please remove the search</string>
-    <string name="general_feedback">Feedback on Leetcode Python app</string>
-    <string name="not_downloaded">Please wait for problem list to download</string>
-    <string name="no_email">Cannot open email application. Please email jake@machinelearningforsmallbusiness.com</string>
-    <string name="solution_offline"># This is one of the latest solutions\n# and is currently only available when online.</string>
-    <string name="help_file">help_text.txt</string>
-    <string name="help_title">ABOUT LEETCODE PYTHON</string>
 
 </resources>
