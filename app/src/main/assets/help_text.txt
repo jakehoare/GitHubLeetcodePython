@@ -26,6 +26,9 @@ To revert to the full list, delete the term and click the search button.
 Displays a random problem from those currently shown on the home screen.
 If there is a search term, this is a random problem from amongst the search results.
 
+*** HIDE/REVEAL ***
+Toggles hiding the solution, so only the question is displayed.
+
 *** FEEDBACK ***
 This opens your email application and allows you to give me feedback.
 You can give feedback on an individual problem, such as a correction or clarification.

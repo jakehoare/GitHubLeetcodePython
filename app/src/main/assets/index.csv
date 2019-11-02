@@ -143,7 +143,7 @@
 143,2,143 Reorder List,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1_to_1000/143_Reorder_List.py
 144,2,144 Binary Tree Preorder Traversal,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1_to_1000/144_Binary_Tree_Preorder_Traversal.py
 145,3,145 Binary Tree Postorder Traversal,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1_to_1000/145_Binary_Tree_Postorder_Traversal.py
-146,3,146 LRU Cache,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1_to_1000/146_LRU_Cache.py
+146,2,146 LRU Cache,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1_to_1000/146_LRU_Cache.py
 147,2,147 Insertion Sort List,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1_to_1000/147_Insertion_Sort_List.py
 148,2,148 Sort List,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1_to_1000/148_Sort_List.py
 149,3,149 Max Points on a Line,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1_to_1000/149_Max_Points_on_a_Line.py
@@ -279,7 +279,7 @@
 296,3,296 Best Meeting Point,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1_to_1000/296_Best_Meeting_Point.py
 297,3,297 Serialize and Deserialize Binary Tree,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1_to_1000/297_Serialize_and_Deserialize_Binary_Tree.py
 298,2,298 Binary Tree Longest Consecutive Sequence,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1_to_1000/298_Binary_Tree_Longest_Consecutive_Sequence.py
-299,2,299 Bulls and Cows,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1_to_1000/299_Bulls_and_Cows.py
+299,1,299 Bulls and Cows,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1_to_1000/299_Bulls_and_Cows.py
 300,2,300 Longest Increasing Subsequence,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1_to_1000/300_Longest_Increasing_Subsequence.py
 301,3,301 Remove Invalid Parentheses,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1_to_1000/301_Remove_Invalid_Parentheses.py
 302,3,302 Smallest Rectangle Enclosing Black Pixels,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1_to_1000/302_Smallest_Rectangle_Enclosing_Black_Pixels.py
@@ -372,7 +372,7 @@
 389,1,389 Find the Difference,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1_to_1000/389_Find_the_Difference.py
 390,2,390 Elimination Game,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1_to_1000/390_Elimination_Game.py
 391,3,391 Perfect Rectangle,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1_to_1000/391_Perfect_Rectangle.py
-392,2,392 Is Subsequence,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1_to_1000/392_Is_Subsequence.py
+392,1,392 Is Subsequence,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1_to_1000/392_Is_Subsequence.py
 393,2,393 UTF-8 Validation,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1_to_1000/393_UTF-8_Validation.py
 394,2,394 Decode String,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1_to_1000/394_Decode_String.py
 395,2,395 Longest Substring with At Least K Repeating Characters,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1_to_1000/395_Longest_Substring_with_At_Least_K_Repeating_Characters.py
@@ -380,7 +380,7 @@
 397,2,397 Integer Replacement,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1_to_1000/397_Integer_Replacement.py
 398,2,398 Random Pick Index,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1_to_1000/398_Random_Pick_Index.py
 399,2,399 Evaluate Division,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1_to_1000/399_Evaluate_Division.py
-400,1,400 Nth Digit,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1_to_1000/400_Nth_Digit.py
+400,2,400 Nth Digit,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1_to_1000/400_Nth_Digit.py
 401,1,401 Binary Watch,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1_to_1000/401_Binary_Watch.py
 402,2,402 Remove K Digits,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1_to_1000/402_Remove_K_Digits.py
 403,3,403 Frog Jump,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1_to_1000/403_Frog_Jump.py
@@ -407,9 +407,9 @@
 424,2,424 Longest Repeating Character Replacement,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1_to_1000/424_Longest_Repeating_Character_Replacement.py
 425,3,425 Word Squares,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1_to_1000/425_Word_Squares.py
 426,2,426 Convert Binary Search Tree to Sorted Doubly Linked List,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1_to_1000/426_Convert_Binary_Search_Tree_to_Sorted_Doubly_Linked_List.py
-427,1,427 Construct Quad Tree,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1_to_1000/427_Construct_Quad_Tree.py
+427,2,427 Construct Quad Tree,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1_to_1000/427_Construct_Quad_Tree.py
 428,3,428 Serialize and Deserialize N-ary Tree,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1_to_1000/428_Serialize_and_Deserialize_N-ary_Tree.py
-429,1,429 N-ary Tree Level Order Traversal,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1_to_1000/429_N-ary_Tree_Level_Order_Traversal.py
+429,2,429 N-ary Tree Level Order Traversal,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1_to_1000/429_N-ary_Tree_Level_Order_Traversal.py
 430,2,430 Flatten a Multilevel Doubly Linked List,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1_to_1000/430_Flatten_a_Multilevel_Doubly_Linked_List.py
 431,3,431 Encode N-ary Tree to Binary Tree,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1_to_1000/431_Encode_N-ary_Tree_to_Binary_Tree.py
 432,3,432 All Oone Data Structure,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1_to_1000/432_All_Oone_Data_Structure.py
@@ -418,7 +418,7 @@
 435,2,435 Non-overlppaping Intervals,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1_to_1000/435_Non-overlppaping_Intervals.py
 436,2,436 Find Right Interval,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1_to_1000/436_Find_Right_Interval.py
 437,1,437 Path Sum III,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1_to_1000/437_Path_Sum_III.py
-438,1,438 Find All Anagrams in a String,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1_to_1000/438_Find_All_Anagrams_in_a_String.py
+438,2,438 Find All Anagrams in a String,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1_to_1000/438_Find_All_Anagrams_in_a_String.py
 439,2,439 Ternary Expression Parser,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1_to_1000/439_Ternary_Expression_Parser.py
 440,3,440 K-th Smallest in Lexicographical Order,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1_to_1000/440_K-th_Smallest_in_Lexicographical_Order.py
 441,1,441 Arranging Coins,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1_to_1000/441_Arranging_Coins.py
@@ -654,7 +654,7 @@
 704,1,704 Binary Search,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1_to_1000/704_Binary_Search.py
 705,1,705 Design HashSet,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1_to_1000/705_Design_HashSet.py
 706,1,706 Design HashMap,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1_to_1000/706_Design_HashMap.py
-707,1,707 Design Linked List,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1_to_1000/707_Design_Linked_List.py
+707,2,707 Design Linked List,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1_to_1000/707_Design_Linked_List.py
 708,2,708 Insert into a Cyclic Sorted List,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1_to_1000/708_Insert_into_a_Cyclic_Sorted_List.py
 709,1,709 To Lower Case,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1_to_1000/709_To_Lower_Case.py
 710,3,710 Random Pick with Blacklist,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1_to_1000/710_Random_Pick_with_Blacklist.py
@@ -988,9 +988,10 @@
 1038,2,1038 Binary Search Tree to Greater Sum Tree,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1038_Binary_Search_Tree_to_Greater_Sum_Tree.py
 1039,2,1039 Minimum Score Triangulation of Polygon,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1039_Minimum_Score_Triangulation_of_Polygon.py
 1040,2,1040 Moving Stones Until Consecutive II,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1040_Moving_Stones_Until_Consecutive_II.py
-1041,1,1041 Robot Bounded In Circle,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1041_Robot_Bounded_In_Circle.py
+1041,2,1041 Robot Bounded In Circle,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1041_Robot_Bounded_In_Circle.py
 1042,1,1042 Flower Planting With No Adjacent,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1042_Flower_Planting_With_No_Adjacent.py
 1043,2,1043 Partition Array for Maximum Sum,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1043_Partition_Array_for_Maximum_Sum.py
+1044,3,1044 Longest Duplicate Substring,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1044_Longest_Duplicate_Substring.py
 1046,1,1046 Last Stone Weight,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1046_Last_Stone_Weight.py
 1047,1,1047 Remove All Adjacent Duplicates In String,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1047_Remove_All_Adjacent_Duplicates_In_String.py
 1048,2,1048 Longest String Chain,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1048_Longest_String_Chain.py
@@ -999,3 +1000,134 @@
 1052,2,1052 Grumpy Bookstore Owner,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1052_Grumpy_Bookstore_Owner.py
 1053,2,1053 Previous Permutation With One Swap,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1053_Previous_Permutation_With_One_Swap.py
 1054,2,1054 Distant Barcodes,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1054_Distant_Barcodes.py
+1055,2,1055 Shortest Way to Form String,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1055_Shortest_Way_to_Form_String.py
+1056,1,1056 Confusing Number,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1056_Confusing_Number.py
+1057,2,1057 Campus Bikes,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1057_Campus_Bikes.py
+1058,2,1058 Minimize Rounding Error to Meet Target,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1058_Minimize_Rounding_Error_to_Meet_Target.py
+1059,2,1059 All Paths from Source Lead to Destination,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1059_All_Paths_from_Source_Lead_to_Destination.py
+1060,2,1060 Missing Element in Sorted Array,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1060_Missing_Element_in_Sorted_Array.py
+1061,2,1061 Lexicographically Smallest Equivalent String,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1061_Lexicographically_Smallest_Equivalent_String.py
+1062,2,1062 Longest Repeating Substring,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1062_Longest_Repeating_Substring.py
+1063,3,1063 Number of Valid Subarrays,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1063_Number_of_Valid_Subarrays.py
+1064,1,1064 Fixed Point,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1064_Fixed_Point.py
+1065,1,1065 Index Pairs of a String,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1065_Index_Pairs_of_a_String.py
+1066,2,1066 Campus Bikes II,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1066_Campus_Bikes_II.py
+1067,3,1067 Digit Count in Range,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1067_Digit_Count_in_Range.py
+1071,1,1071 Greatest Common Divisor of Strings,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1071_Greatest_Common_Divisor_of_Strings.py
+1072,2,1072 Flip Columns For Maximum Number of Equal Rows,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1072_Flip_Columns_For_Maximum_Number_of_Equal_Rows.py
+1073,2,1073 Adding Two Negabinary Numbers,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1073_Adding_Two_Negabinary_Numbers.py
+1074,3,1074 Number of Submatrices That Sum to Target,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1074_Number_of_Submatrices_That_Sum_to_Target.py
+1078,1,1078 Occurrences After Bigram,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1078_Occurrences_After_Bigram.py
+1079,2,1079 Letter Tile Possibilities,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1079_Letter_Tile_Possibilities.py
+1080,2,1080 Insufficient Nodes in Root to Leaf Paths,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1080_Insufficient_Nodes_in_Root_to_Leaf_Paths.py
+1081,2,1081 Smallest Subsequence of Distinct Characters,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1081_Smallest_Subsequence_of_Distinct_Characters.py
+1085,1,1085 Sum of Digits in the Minimum Number,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1085_Sum_of_Digits_in_the_Minimum_Number.py
+1086,1,1086 High Five,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1086_High_Five.py
+1087,2,1087 Brace Expansion,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1087_Brace_Expansion.py
+1088,3,1088 Confusing Number II,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1088_Confusing_Number_II.py
+1089,1,1089 Duplicate Zeros,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1089_Duplicate_Zeros.py
+1090,2,1090 Largest Values From Labels,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1090_Largest_Values_From_Labels.py
+1091,2,1091 Shortest Path in Binary Matrix,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1091_Shortest_Path_in_Binary_Matrix.py
+1092,3,1092 Shortest Common Supersequence,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1092_Shortest_Common_Supersequence.py
+1093,2,1093 Statistics from a Large Sample,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1093_Statistics_from_a_Large_Sample.py
+1094,2,1094 Car Pooling,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1094_Car_Pooling.py
+1095,3,1095 Find in Mountain Array,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1095_Find_in_Mountain_Array.py
+1096,3,1096 Brace Expansion II,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1096_Brace_Expansion_II.py
+1099,1,1099 Two Sum Less Than K,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1099_Two_Sum_Less_Than_K.py
+1100,2,1100 Find K-Length Substrings With No Repeated Characters,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1100_Find_K-Length_Substrings_With_No_Repeated_Characters.py
+1101,2,1101 The Earliest Moment When Everyone Become Friends,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1101_The_Earliest_Moment_When_Everyone_Become_Friends.py
+1102,2,1102 Path With Maximum Minimum Value,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1102_Path_With_Maximum_Minimum_Value.py
+1103,1,1103 Distribute Candies to People,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1103_Distribute_Candies_to_People.py
+1104,2,1104 Path In Zigzag Labelled Binary Tree,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1104_Path_In_Zigzag_Labelled_Binary_Tree.py
+1105,2,1105 Filling Bookcase Shelves,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1105_Filling_Bookcase_Shelves.py
+1106,3,1106 Parsing A Boolean Expression,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1106_Parsing_A_Boolean_Expression.py
+1108,1,1108 Defanging an IP Address,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1108_Defanging_an_IP_Address.py
+1109,2,1109 Corporate Flight Bookings,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1109_Corporate_Flight_Bookings.py
+1110,2,1110 Delete Nodes And Return Forest,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1110_Delete_Nodes_And_Return_Forest.py
+1111,2,1111 Maximum Nesting Depth of Two Valid Parentheses Strings,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1111_Maximum_Nesting_Depth_of_Two_Valid_Parentheses_Strings.py
+1118,1,1118 Number of Days in a Month,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1118_Number_of_Days_in_a_Month.py
+1119,1,1119 Remove Vowels from a String,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1119_Remove_Vowels_from_a_String.py
+1120,2,1120 Maximum Average Subtree,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1120_Maximum_Average_Subtree.py
+1121,3,1121 Divide Array Into Increasing Sequences,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1121_Divide_Array_Into_Increasing_Sequences.py
+1122,1,1122 Relative Sort Array,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1122_Relative_Sort_Array.py
+1123,2,1123 Lowest Common Ancestor of Deepest Leaves,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1123_Lowest_Common_Ancestor_of_Deepest_Leaves.py
+1124,2,1124 Longest Well-Performing Interval,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1124_Longest_Well-Performing_Interval.py
+1125,3,1125 Smallest Sufficient Team,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1125_Smallest_Sufficient_Team.py
+1128,1,1128 Number of Equivalent Domino Pairs,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1128_Number_of_Equivalent_Domino_Pairs.py
+1129,2,1129 Shortest Path with Alternating Colors,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1129_Shortest_Path_with_Alternating_Colors.py
+1130,2,1130 Minimum Cost Tree From Leaf Values,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1130_Minimum_Cost_Tree_From_Leaf_Values.py
+1131,2,1131 Maximum of Absolute Value Expression,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1131_Maximum_of_Absolute_Value_Expression.py
+1133,1,1133 Largest Unique Number,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1133_Largest_Unique_Number.py
+1134,1,1134 Armstrong Number,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1134_Armstrong_Number.py
+1135,2,1135 Connecting Cities With Minimum Cost,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1135_Connecting_Cities_With_Minimum_Cost.py
+1136,3,1136 Parallel Courses,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1136_Parallel_Courses.py
+1137,1,1137 N-th Tribonacci Number,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1137_N-th_Tribonacci_Number.py
+1138,2,1138 Alphabet Board Path,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1138_Alphabet_Board_Path.py
+1139,2,1139 Largest 1-Bordered Square,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1139_Largest_1-Bordered_Square.py
+1140,2,1140 Stone Game II,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1140_Stone_Game_II.py
+1143,2,1143 Longest Common Subsequence,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1143_Longest_Common_Subsequence.py
+1144,2,1144 Decrease Elements To Make Array Zigzag,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1144_Decrease_Elements_To_Make_Array_Zigzag.py
+1145,2,1145 Binary Tree Coloring Game,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1145_Binary_Tree_Coloring_Game.py
+1146,2,1146 Snapshot Array,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1146_Snapshot_Array.py
+1147,3,1147 Longest Chunked Palindrome Decomposition,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1147_Longest_Chunked_Palindrome_Decomposition.py
+1150,1,1150 Check If a Number Is Majority Element in a Sorted Array,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1150_Check_If_a_Number_Is_Majority_Element_in_a_Sorted_Array.py
+1151,2,1151 Minimum Swaps to Group All 1's Together,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1151_Minimum_Swaps_to_Group_All_1's_Together.py
+1152,2,1152 Analyze User Website Visit Pattern,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1152_Analyze_User_Website_Visit_Pattern.py
+1153,3,1153 String Transforms Into Another String,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1153_String_Transforms_Into_Another_String.py
+1154,1,1154 Day of the Year,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1154_Day_of_the_Year.py
+1155,2,1155 Number of Dice Rolls With Target Sum,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1155_Number_of_Dice_Rolls_With_Target_Sum.py
+1156,2,1156 Swap For Longest Repeated Character Substring,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1156_Swap_For_Longest_Repeated_Character_Substring.py
+1157,3,1157 Online Majority Element In Subarray,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1157_Online_Majority_Element_In_Subarray.py
+1160,1,1160 Find Words That Can Be Formed by Characters,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1160_Find_Words_That_Can_Be_Formed_by_Characters.py
+1161,2,1161 Maximum Level Sum of a Binary Tree,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1161_Maximum_Level_Sum_of_a_Binary_Tree.py
+1162,2,1162 As Far from Land as Possible,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1162_As_Far_from_Land_as_Possible.py
+1163,3,1163 Last Substring in Lexicographical Order,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1163_Last_Substring_in_Lexicographical_Order.py
+1165,1,1165 Single-Row Keyboard,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1165_Single-Row_Keyboard.py
+1166,2,1166 Design File System,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1166_Design_File_System.py
+1167,2,1167 Minimum Cost to Connect Sticks,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1167_Minimum_Cost_to_Connect_Sticks.py
+1168,3,1168 Optimize Water Distribution in a Village,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1168_Optimize_Water_Distribution_in_a_Village.py
+1169,2,1169 Invalid Transactions,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1169_Invalid_Transactions.py
+1170,1,1170 Compare Strings by Frequency of the Smallest Character,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1170_Compare%20Strings_by_Frequency_of_the_Smallest_Character.py
+1171,2,1171 Remove Zero Sum Consecutive Nodes from Linked List,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1171_Remove_Zero_Sum_Consecutive_Nodes_from_Linked_List.py
+1172,3,1172 Dinner Plate Stacks,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1172_Dinner_Plate_Stacks.py
+1175,1,1175 Prime Arrangements,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1175_Prime_Arrangements.py
+1176,1,1176 Diet Plan Performance,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1176_Diet_Plan_Performance.py
+1177,2,1177 Can Make Palindrome from Substring,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1177_Can_Make_Palindrome_from_Substring.py
+1178,3,1178 Number of Valid Words for Each Puzzle,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1178_Number_of_Valid_Words_for_Each_Puzzle.py
+1180,1,1180 Count Substrings with Only One Distinct Letter,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1180_Count_Substrings_with_Only_One_Distinct_Letter.py
+1181,2,1181 Before and After Puzzle,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1181_Before_and_After_Puzzle.py
+1182,2,1182 Shortest Distance to Target Color,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1182_Shortest_Distance_to_Target_Color.py
+1183,3,1183 Maximum Number of Ones,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1183_Maximum_Number_of_Ones.py
+1184,1,1184 Distance Between Bus Stops,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1184_Distance_Between_Bus_Stops.py
+1185,1,1185 Day of the Week,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1185_Day_of_the_Week.py
+1186,2,1186 Maximum Subarray Sum with One Deletion,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1186_Maximum_Subarray_Sum_with_One_Deletion.py
+1187,3,1187 Make Array Strictly Increasing,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1187_Make_Array_Strictly_Increasing.py
+1189,1,1189 Maximum Number of Balloons,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1189_Maximum_Number_of_Balloons.py
+1190,2,1190 Reverse Substrings Between Each Pair of Parentheses,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1190_Reverse_Substrings_Between_Each_Pair_of_Parentheses.py
+1191,2,1191 K-Concatenation Maximum Sum,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1191_K-Concatenation_Maximum_Sum.py
+1192,3,1192 Critical Connections in a Network,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1192_Critical_Connections_in_a_Network.py
+1196,1,1196 How Many Apples Can You Put into the Basket,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1196_How_Many_Apples_Can_You_Put_into_the_Basket.py
+1197,2,1197 Minimum Knight Moves,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1197_Minimum_Knight_Moves.py
+1198,2,1198 Find Smallest Common Element in All Rows,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1198_Find_Smallest_Common_Element_in_All_Rows.py
+1199,3,1199 Minimum Time to Build Blocks,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1199_Minimum_Time_to_Build_Blocks.py
+1200,1,1200 Minimum Absolute Difference,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1200_Minimum_Absolute_Difference.py
+1201,2,1201 Ugly Number III,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1201_Ugly_Number_III.py
+1202,2,1202 Smallest String With Swaps,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1202_Smallest_String_With_Swaps.py
+1203,3,1203 Sort Items by Groups Respecting Dependencies,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1203_Sort_Items_by_Groups_Respecting_Dependencies.py
+1207,1,1207 Unique Number of Occurrences,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1207_Unique_Number_of_Occurrences.py
+1208,2,1208 Get Equal Substrings Within Budget,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1208_Get_Equal_Substrings_Within_Budget.py
+1209,2,1209 Remove All Adjacent Duplicates in String II,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1209_Remove_All_Adjacent_Duplicates_in_String_II.py
+1210,3,1210 Minimum Moves to Reach Target with Rotations,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1210_Minimum_Moves_to_Reach_Target_with_Rotations.py
+1213,1,1213 Intersection of Three Sorted Arrays,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1213_Intersection_of_Three_Sorted_Arrays.py
+1214,2,1214 Two Sum BSTs,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1214_Two_Sum_BSTs.py
+1215,2,1215 Stepping Numbers,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1215_Stepping_Numbers.py
+1216,3,1216 Valid Palindrome III,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1216_Valid_Palindrome_III.py
+1217,1,1217 Play with Chips,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1217_Play_with_Chips.py
+1218,2,1218 Longest Arithmetic Subsequence of Given Difference,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1218_Longest_Arithmetic_Subsequence_of_Given_Difference.py
+1219,2,1219 Path with Maximum Gold,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1219_Path_with_Maximum_Gold.py
+1220,3,1220 Count Vowels Permutation,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1220_Count_Vowels_Permutation.py
+1221,1,1221 Split a String in Balanced Strings,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1221_Split_a_String_in_Balanced_Strings.py
+1222,2,1222 Queens That Can Attack the King,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1222_Queens_That_Can_Attack_the_King.py
+1223,2,1223 Dice Roll Simulation,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1223_Dice_Roll_Simulation.py
+1224,3,1224 Maximum Equal Frequency,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1224_Maximum_Equal_Frequency.py
+1228,1,1228 Missing Number In Arithmetic Progression,https://raw.githubusercontent.com/jakehoare/leetcode/master/python_1001_to_2000/1228_Missing_Number_In_Arithmetic_Progression.py
