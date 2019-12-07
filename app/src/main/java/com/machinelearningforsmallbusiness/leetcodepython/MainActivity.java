@@ -15,6 +15,7 @@
  */
 package com.machinelearningforsmallbusiness.leetcodepython;
 
+import android.content.ActivityNotFoundException;
 import android.net.Uri;
 import android.support.v4.app.FragmentManager;
 import android.content.Context;
@@ -200,7 +201,12 @@ public class MainActivity extends AppCompatActivity implements GetProblemsFragme
         Uri uri = Uri.parse(getString(R.string.mail_feedback_email));
         Intent mailIntent = new Intent(Intent.ACTION_SENDTO, uri);
         mailIntent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.general_feedback));
-        startActivity(mailIntent);
+        try {
+            startActivity(mailIntent);
+        } catch (ActivityNotFoundException e) {
+            Toast.makeText(getApplicationContext(), R.string.no_email,
+                    Toast.LENGTH_LONG).show();
+        }
     }
 
 }

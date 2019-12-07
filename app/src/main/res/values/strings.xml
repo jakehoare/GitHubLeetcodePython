@@ -27,7 +27,7 @@
     <string name="hide">Hide</string>
     <string name="mail_blank">mailto:</string>
     <string name="mail_feedback_email">mailto:jake@machinelearningforsmallbusiness.com</string>
-    <string name="no_email">Cannot open email application. Please email jake@machinelearningforsmallbusiness.com</string>
+    <string name="no_email">Cannot open email application</string>
     <string name="not_downloaded">Please wait for problem list to download</string>
     <string name="random">Random</string>
     <string name="reveal">Reveal</string>
