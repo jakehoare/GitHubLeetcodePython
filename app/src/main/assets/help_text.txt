@@ -1,9 +1,3 @@
-If you are online, the app contains all the problems that I have solved.
-This is all of the algorithm problems on Leetcode (perhaps apart from the newest few).
-The list of problems on Leetcode is continually increasing and I aim to keep the app updated.
-
-If you are offline, the list of problems is updated when a new version of this app is released. Updates occur about every few months.
-
 Solutions include:
     - problem description from Leetcode
     - explanation of the solution
@@ -34,5 +28,5 @@ This opens your email application and allows you to give me feedback.
 You can give feedback on an individual problem, such as a correction or clarification.
 I am also happy to receive feedback on the overall application.
 
-*** FORWARD ***
+*** SHARE ***
 This opens your email application and allows you to forward the problem solution to an email address.
