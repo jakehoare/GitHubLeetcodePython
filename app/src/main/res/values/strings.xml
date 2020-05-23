@@ -26,7 +26,7 @@
     <string name="help_title">ABOUT LEETCODE PYTHON</string>
     <string name="hide">Hide</string>
     <string name="mail_blank">mailto:</string>
-    <string name="mail_feedback_email">mailto:jake@machinelearningforsmallbusiness.com</string>
+    <string name="mail_feedback_email">mailto:jake.leetcode.python@gmail.com</string>
     <string name="no_email">Cannot open email application</string>
     <string name="not_downloaded">Please wait for problem list to download</string>
     <string name="random">Random</string>
@@ -37,5 +37,4 @@
     <string name="toast_downloading">Problem list is loading</string>
     <string name="toast_downloading_solution">Solution is loading</string>
     <string name="toast_empty">Problem list is empty. Please remove the search</string>
-
 </resources>
