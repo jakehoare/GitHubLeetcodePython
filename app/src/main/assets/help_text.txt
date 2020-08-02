@@ -26,7 +26,6 @@ Toggles hiding the solution, so only the question is displayed.
 *** FEEDBACK ***
 This opens your email application and allows you to give me feedback.
 You can give feedback on an individual problem, such as a correction or clarification.
-I am also happy to receive feedback on the overall application.
 
 *** SHARE ***
 This opens your email application and allows you to forward the problem solution to an email address.

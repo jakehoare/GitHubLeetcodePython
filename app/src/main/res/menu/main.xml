@@ -34,10 +34,4 @@
         app:showAsAction="ifRoom"
         android:title="@string/random"/>
 
-    <item
-        android:id="@+id/action_feedback_main"
-        android:orderInCategory="1"
-        app:showAsAction="ifRoom"
-        android:title="@string/feedback"/>
-
 </menu>

@@ -33,7 +33,7 @@
         android:inputType="text"
         android:imeOptions="actionSearch"/>
 
-    <android.support.v7.widget.RecyclerView
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/lv_problem_list"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content" />

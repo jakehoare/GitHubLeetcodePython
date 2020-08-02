@@ -15,15 +15,12 @@
  */
 package com.machinelearningforsmallbusiness.leetcodepython;
 
-import android.content.ActivityNotFoundException;
-import android.net.Uri;
-import android.support.v4.app.FragmentManager;
+import androidx.fragment.app.FragmentManager;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -123,10 +120,6 @@ public class MainActivity extends AppCompatActivity implements GetProblemsFragme
             }
             return true;
 
-        } else if (itemThatWasClickedId == R.id.action_feedback_main) {
-            sendFeedback();
-            return true;
-
         } else if (itemThatWasClickedId == R.id.action_help) {
             ShowHelp.showHelp(MainActivity.this);
             return true;
@@ -194,19 +187,6 @@ public class MainActivity extends AppCompatActivity implements GetProblemsFragme
         if (focusedView != null)
             inputManager.hideSoftInputFromWindow(focusedView.getWindowToken(),
                     InputMethodManager.HIDE_NOT_ALWAYS);
-    }
-
-    //Start a new activity for sending a feedback email
-    private void sendFeedback() {
-        Uri uri = Uri.parse(getString(R.string.mail_feedback_email));
-        Intent mailIntent = new Intent(Intent.ACTION_SENDTO, uri);
-        mailIntent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.general_feedback));
-        try {
-            startActivity(mailIntent);
-        } catch (ActivityNotFoundException e) {
-            Toast.makeText(getApplicationContext(), R.string.no_email,
-                    Toast.LENGTH_LONG).show();
-        }
     }
 
 }
