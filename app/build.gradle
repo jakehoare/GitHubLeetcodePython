@@ -7,8 +7,8 @@ android {
         applicationId "com.machinelearningforsmallbusiness.leetcodepython"
         minSdkVersion 15
         targetSdkVersion 29
-        versionCode 26
-        versionName "1.25"
+        versionCode 28
+        versionName "1.27"
     }
     buildTypes {
         release {
@@ -20,8 +20,8 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'androidx.appcompat:appcompat:1.1.0'
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'com.github.twalcari:java-prettify:1.2.2'
     implementation 'com.pddstudio:highlightjs-android:1.5.0'
